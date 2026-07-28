@@ -1,0 +1,46 @@
+---
+interface Props {
+  current?: 'about' | 'events' | 'charities' | 'sponsors' | 'media' | 'news';
+}
+
+const { current } = Astro.props;
+
+const links = [
+  { id: 'about', href: '/about', label: 'About us' },
+  { id: 'events', href: '/events', label: 'Events' },
+  { id: 'charities', href: '/charities', label: 'Charities' },
+  { id: 'sponsors', href: '/sponsors', label: 'Sponsors' },
+  { id: 'media', href: '/media', label: 'Media' },
+  { id: 'news', href: '/news', label: 'News' },
+] as const;
+
+function linkStyle(id: string) {
+  const base = 'font-size: 16px; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px;';
+  if (current === id) {
+    return `${base} color: #001535; background: #c8d9f2;`;
+  }
+  return `${base} color: #002b60;`;
+}
+---
+
+<nav style="background-color: #f4f0e8; padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e0ded8;">
+  <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0;">
+    <img
+      src="/images/logo.png"
+      alt="St. Andrews Foundation — Scots in Poland"
+      style="height: 44px; width: auto; display: block; filter: invert(1);"
+    />
+  </a>
+  <div style="display: flex; gap: 4px; white-space: nowrap; flex-shrink: 0;">
+    {links.map((link) => (
+      <a href={link.href} style={linkStyle(link.id)}>{link.label}</a>
+    ))}
+  </div>
+  <div style="display: flex; gap: 16px; align-items: center;">
+    <div style="border: 1px solid #e0ded8; border-radius: 24px; padding: 3px; display: flex;">
+      <span style="background: #003f8a; color: white; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 500;">EN</span>
+      <span style="color: #333; padding: 6px 10px; font-size: 12px; font-weight: 500;">PL</span>
+    </div>
+    <a href="/#donate" style="background-color: #c8102e; color: white; padding: 8px 16px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 500;">Donate</a>
+  </div>
+</nav>

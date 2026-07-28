@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "@fontsource/newsreader/400.css";
+@import "@fontsource/newsreader/600.css";
+@import "@fontsource/newsreader/700.css";
+
+:root {
+  --blue-dark: #001a3d;
+  --blue: #003f8a;
+  --red: #c8102e;
+  --gold: #c9a24a;
+  --cream: #f4f0e8;
+  --warm-white: #f5f5f3;
+  --border: #e0ded8;
+  --text-primary: #333;
+  --text-secondary: #555;
+  --text-muted: #999;
+}
+
+body {
+  background-color: var(--cream);
+  font-family: 'Geist', sans-serif;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Newsreader', serif;
+}
+
+/* Hero headlines: wide enough for long titles to wrap in ≤3 lines at 72px */
+.hero-headline-col {
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero-headline-wrap {
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.page-hero {
+  background-color: #001a3d;
+  padding: 128px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 120px;
+}
+
+.page-hero--stacked {
+  display: block;
+}

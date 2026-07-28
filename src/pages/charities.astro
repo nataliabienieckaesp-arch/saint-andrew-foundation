@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro';
+import { ArrowUpRight, Heart } from 'lucide-astro';
+---
+
+<Layout>
+  <!-- TOP BANNER -->
+  <div style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
+    <span>Patron · British Embassy Warsaw</span>
+    <span>KRS 0000557012 · Charity reg. since 2016</span>
+  </div>
+
+  <Navbar current="charities" />
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-headline-col">
+      <div style="display: flex; gap: 8px; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">
+        <span>Charities</span>
+        <div style="height: 1px; width: 194px; background: #c9a24a;"></div>
+      </div>
+      <h1 style="font-family: 'Newsreader', serif; font-size: 72px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Eight organisations. One mission.</h1>
+      <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0; max-width: 564px;">Every złoty raised at the Ceilidh reaches a named cause. We work directly with our partner organisations — no administration fees, no deductions.</p>
+      <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0; max-width: 564px;">In 2025/26, the Foundation expanded its reach through a partnership with Valores Venture Philanthropy, with the official patronage of the British Embassy Warsaw — bringing five new organisations into our network.</p>
+      <div style="display: flex; gap: 16px;">
+        <a href="#donate" style="background-color: #c8102e; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+          Donate now <Heart size={18} />
+        </a>
+        <a href="#charities" style="border: 1.5px solid white; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+          See all charities <ArrowUpRight size={18} />
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div style="width: 506px; display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.15);">
+      <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; display: flex; justify-content: space-between; align-items: center;">
+        <p style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">PLN 1.2M+</p>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; max-width: 200px; text-align: right; line-height: 1.5;">raised and distributed since 2016</p>
+      </div>
+      <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; display: flex; justify-content: space-between; align-items: center;">
+        <p style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">8</p>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; max-width: 200px; text-align: right; line-height: 1.5;">organisations supported across Poland and the UK</p>
+      </div>
+      <div style="padding: 24px 0; display: flex; justify-content: space-between; align-items: center;">
+        <p style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">4,200+</p>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; max-width: 200px; text-align: right; line-height: 1.5;">Polish children supported through our programmes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section style="background: #f4f0e8; padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div style="background: #c8102e; height: 1px; width: 28px;"></div>
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">How it works</span>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">From your pocket to a child's life.</h2>
+      <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: #c9a24a; line-height: 1;">01</div>
+        <div style="background: #c8102e; height: 2px; width: 40px;"></div>
+        <h3 style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #002b60; margin: 0;">We host the Ceilidh</h3>
+        <p style="font-size: 14px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0;">Every year we organise the Warsaw Charity Ceilidh — tickets, tables, auction, and sponsorship all go to the fund.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: #c9a24a; line-height: 1;">02</div>
+        <div style="background: #c8102e; height: 2px; width: 40px;"></div>
+        <h3 style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #002b60; margin: 0;">We vet our partners</h3>
+        <p style="font-size: 14px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0;">Every charity we support is carefully reviewed by our board. We visit, we verify, and we commit to year-on-year support.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: #c9a24a; line-height: 1;">03</div>
+        <div style="background: #c8102e; height: 2px; width: 40px;"></div>
+        <h3 style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #002b60; margin: 0;">Funds are distributed</h3>
+        <p style="font-size: 14px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0;">100% of all donations go directly to our partner organisations. The Foundation takes no administrative fees.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: #c9a24a; line-height: 1;">04</div>
+        <div style="background: #c8102e; height: 2px; width: 40px;"></div>
+        <h3 style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #002b60; margin: 0;">We report back</h3>
+        <p style="font-size: 14px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0;">Each year we publish a full report showing exactly where every złoty went and what it achieved.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARITY CARDS -->
+  <section id="charities" style="background-color: #001a3d; padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Our partners</span>
+        <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">The organisations we support.</h2>
+        <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
+      </div>
+    </div>
+
+    <!-- Primary partners — centered -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 960px; margin: 0 auto; width: 100%;">
+
+      <div style="background: white; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+        <img src="/images/fundacja-iskierka.png" alt="Fundacja Iskierka" style="border-radius: 12px; height: 200px; width: 100%; object-fit: cover; object-position: top;" />
+        <div style="background: #c8d9f2; display: inline-flex; padding: 4px 12px; border-radius: 999px; align-self: flex-start;">
+          <span style="font-size: 12px; font-weight: 600; color: #001535;">Children · Cancer</span>
+        </div>
+        <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #333; margin: 0; line-height: 1.25;">Fundacja Iskierka</h3>
+        <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">Since 2006, Fundacja Iskierka has been building support systems, therapies, and educational programmes in the field of paediatric oncology. The Foundation has donated operating theatre equipment that directly enables life-saving procedures for children with cancer. Iskierka is our primary beneficiary and the heart of everything we do.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="background: #f5f5f3; border-radius: 999px; height: 8px; overflow: hidden;">
+            <div style="background: #c8102e; height: 8px; width: 50%; border-radius: 999px;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span style="font-weight: 600; color: #333;">PLN 12,500 raised</span>
+            <span style="color: #999;">of PLN 25,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: white; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="background: #f5f5f3; border: 1px solid #e0ded8; border-radius: 12px; height: 200px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: rgba(0,43,96,0.15);">H</span>
+        </div>
+        <div style="background: #c8d9f2; display: inline-flex; padding: 4px 12px; border-radius: 999px; align-self: flex-start;">
+          <span style="font-size: 12px; font-weight: 600; color: #001535;">Children · Disabilities</span>
+        </div>
+        <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #333; margin: 0; line-height: 1.25;">Centrum Rehabilitacji Helenów</h3>
+        <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">The Rehabilitation, Education and Care Centre TPD Helenów provides comprehensive functional and social rehabilitation for disabled children and teenagers in Warsaw. In 2020, the Foundation funded a hippotherapy arena at Helenów — a dedicated facility for horse-assisted therapy, opened on 24 June 2020.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="background: #f5f5f3; border-radius: 999px; height: 8px; overflow: hidden;">
+            <div style="background: #c8102e; height: 8px; width: 50%; border-radius: 999px;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px;">
+            <span style="font-weight: 600; color: #333;">PLN 12,500 raised</span>
+            <span style="color: #999;">of PLN 25,000</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Other partners — compact secondary grid -->
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Also supported</span>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;">
+        {[
+          { name: 'AmpFutbol Polska', initials: 'AF', desc: 'What began as a few people training in a gym has grown into a nationwide movement. AmpFutbol develops and promotes football for people with disabilities — including 70 Futbol Plus academies, 2,000 players, and a reach of over one million through media and broadcasts. They have taken Polish amputee football to the European Championships.' },
+          { name: 'eFkropka', initials: 'eF', desc: 'Founded in 2010 by professionals in mental health treatment, eFkropka addresses the systemic lack of support for people in psychological crisis. They run helplines, therapeutic education programmes, and community outreach — and uniquely, they employ people who have lived through a mental health crisis themselves as experts-by-experience.' },
+          { name: 'Stowarzyszenie Otwarte Drzwi', initials: 'OD', desc: 'Social inclusion programmes in Praga Północ, Warsaw — supporting marginalised communities and creating opportunities for people facing hardship.' },
+          { name: 'SPiIS', initials: 'SP', desc: 'Homelessness and life-crisis support across Warsaw — helping people facing the most difficult moments rebuild stability and dignity.' },
+          { name: 'Nagle Sami', initials: 'NS', desc: 'Grief support for bereaved spouses and families — providing counselling, community, and care for those navigating loss.' },
+        ].map(org => (
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="border-radius: 8px; height: 140px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
+              <span style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 700; color: rgba(255,255,255,0.2);">{org.initials}</span>
+            </div>
+            <h3 style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: white; margin: 0; line-height: 1.25;">{org.name}</h3>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; margin: 0;">{org.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES CALLOUT -->
+  <section style="background: #f4f0e8; padding: 80px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div style="background: #c8102e; height: 1px; width: 28px;"></div>
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Partnership</span>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">Expanding our reach through Valores Venture Philanthropy.</h2>
+      <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
+      <p style="font-size: 18px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0;">In 2025/26, the St. Andrews Foundation partnered with Valores Venture Philanthropy — a Warsaw-based initiative supporting high-impact social organisations, under the official patronage of the British Embassy Warsaw. Through this partnership, five new organisations were rigorously vetted and selected to receive donations from the Foundation, each receiving PLN 2,000 from the 2025 Ceilidh proceeds.</p>
+    </div>
+    <div style="background: #e8e4dc; border: 1px solid #e0ded8; border-radius: 16px; height: 420px; display: flex; align-items: center; justify-content: center;">
+      <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em;">Partnership photo</span>
+    </div>
+  </section>
+
+  <!-- DONATE WIDGET -->
+  <section id="donate" style="background: #f4f0e8; padding: 80px 96px; display: flex; justify-content: center;">
+    <div style="background: white; border: 1px solid #e0ded8; border-radius: 16px; padding: 48px 56px; max-width: 720px; width: 100%; display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center;">
+      <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #001a3d; text-transform: uppercase; letter-spacing: 0.04em;">Donate</span>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #001a3d; margin: 0; line-height: 1.15;">Powered by volunteers, driven by generosity so every donation goes further.</h2>
+      <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0; max-width: 500px;">100% of donations reach our partner charities. No administration fees, no deductions — every złoty matters.</p>
+      <a href="#" style="background: #c8102e; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+        Donate money securely <ArrowUpRight size={18} />
+      </a>
+      <p style="font-size: 14px; color: #999; margin: 0;">No admin fees taken from donations · Secure payment — card, BLIK, or bank transfer · Reaches a named cause</p>
+    </div>
+  </section>
+
+  <!-- APPLY SECTION -->
+  <section id="apply" style="background: #001a3d; padding: 80px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div style="background: #c9a24a; height: 1px; width: 28px;"></div>
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">For organisations</span>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Want to become a partner?</h2>
+      <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
+      <p style="font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.4; margin: 0;">We review new applications every autumn ahead of our annual Ceilidh. If your organisation supports Polish children and shares our values, we'd love to hear from you.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="background: #c9a24a; width: 6px; min-width: 6px; height: 6px; border-radius: 999px; margin-top: 8px;"></div>
+          <p style="font-size: 16px; color: rgba(255,255,255,0.8); margin: 0; line-height: 1.6;">Your organisation must be a registered Polish or British charity</p>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="background: #c9a24a; width: 6px; min-width: 6px; height: 6px; border-radius: 999px; margin-top: 8px;"></div>
+          <p style="font-size: 16px; color: rgba(255,255,255,0.8); margin: 0; line-height: 1.6;">You must support ill, disabled, or vulnerable children</p>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: flex-start;">
+          <div style="background: #c9a24a; width: 6px; min-width: 6px; height: 6px; border-radius: 999px; margin-top: 8px;"></div>
+          <p style="font-size: 16px; color: rgba(255,255,255,0.8); margin: 0; line-height: 1.6;">Applications open each September for the following year</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <div style="background: white; border-radius: 16px; padding: 40px; display: flex; flex-direction: column; gap: 20px;">
+      <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #002b60; margin: 0;">Get in touch</h3>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Organisation name</label>
+        <input type="text" placeholder="e.g. Fundacja Przykład" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; color: #333; outline: none; width: 100%; box-sizing: border-box;" />
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Contact person</label>
+        <input type="text" placeholder="Your name" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; color: #333; outline: none; width: 100%; box-sizing: border-box;" />
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Email</label>
+        <input type="email" placeholder="contact@yourcharity.pl" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; color: #333; outline: none; width: 100%; box-sizing: border-box;" />
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Tell us about your organisation</label>
+        <textarea placeholder="Who do you support and how?" rows="4" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; color: #333; outline: none; width: 100%; box-sizing: border-box; resize: vertical; font-family: inherit;"></textarea>
+      </div>
+      <button style="background: #003f8a; color: white; padding: 16px 32px; border-radius: 999px; border: none; font-size: 18px; font-weight: 500; cursor: pointer; width: 100%;">Send application</button>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

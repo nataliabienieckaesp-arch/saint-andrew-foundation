@@ -1,0 +1,321 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro';
+import { ArrowUpRight } from 'lucide-astro';
+---
+
+<Layout>
+  <!-- TOP BANNER -->
+  <div style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
+    <span>Patron · British Embassy Warsaw</span>
+    <span>KRS 0000557012 · Charity reg. since 2016</span>
+  </div>
+
+  <Navbar current="about" />
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-headline-col" style="flex: 1;">
+      <div style="display: flex; gap: 8px; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">
+        <span>Our story</span>
+        <div style="height: 1px; width: 194px; background: #c9a24a;"></div>
+      </div>
+      <h1 style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Established in 2016 by Scots in Poland to celebrate Scottish culture and change young lives.</h1>
+      <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0;">The St. Andrews Foundation is a Scottish charity in Poland dedicated to raising funds for children and young people facing illness and hardship, while celebrating Scotland's rich culture and strengthening the historic friendship between Scotland and Poland.</p>
+    </div>
+
+    <!-- Hero stats -->
+    <div style="display: flex; flex-direction: column; gap: 32px; width: 506px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <p style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">PLN 1M+</p>
+        <div style="background: #c9a24a; height: 2px; width: 88px;"></div>
+        <p style="font-size: 16px; color: white; margin: 0; line-height: 1.6;">Raised since 2016</p>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.15);">
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 14px 0; display: flex; justify-content: space-between; align-items: center;">
+          <p style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: white; margin: 0;">8</p>
+          <p style="font-family: 'Courier New', monospace; font-size: 12px; color: white; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">Organisations supported</p>
+        </div>
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 14px 0; display: flex; justify-content: space-between; align-items: center;">
+          <p style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: white; margin: 0;">9</p>
+          <p style="font-family: 'Courier New', monospace; font-size: 12px; color: white; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">Ceilidh editions</p>
+        </div>
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 14px 0; display: flex; justify-content: space-between; align-items: center;">
+          <p style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: white; margin: 0;">15+</p>
+          <p style="font-family: 'Courier New', monospace; font-size: 12px; color: white; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">Years of activity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY + TIMELINE -->
+  <section style="padding: 80px 96px; display: flex; flex-direction: column; gap: 32px;">
+    <div style="display: flex; flex-direction: column; gap: 16px; width: calc((100% - 80px) * 2 / 3);">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div style="background: #c8102e; height: 1px; width: 28px;"></div>
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">The Beginning</span>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">How it all started.</h2>
+      <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 80px; align-items: start;">
+      <!-- Left: story -->
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <div style="display: flex; flex-direction: column; gap: 16px; font-size: 16px; color: #002b60; line-height: 1.6;">
+          <p style="margin: 0;">The roots of the St. Andrews Foundation can be traced back to the 1990s, when the Scottish Ball in Warsaw was established and organised by Martyn O'Reilly. For many years, the event brought together members of the Scottish and Polish communities in a celebration of Scottish culture, friendship and goodwill.</p>
+        <p style="margin: 0;">In 2015, when Martyn indicated that it might be time for others to continue the tradition, four Scottish businessmen living and working in Warsaw — Ben Bannatyne (First Foundation President), Iain Leyden, Paul Gogolinski and Alexander (Sandy) McMillan — came together to ensure that the event would not only continue, but evolve into something even more meaningful. Together, they established the St. Andrews Foundation, a charitable organisation dedicated to raising funds for ill, disadvantaged and vulnerable children in Poland while promoting Scottish culture and strengthening the bonds between Scotland and Poland.</p>
+        <figure style="margin: 8px 0; display: flex; flex-direction: column; gap: 10px;">
+          <div style="border-radius: 12px; overflow: hidden; height: 320px; background: #001535;">
+            <img src="/images/St_Andrews_Foundation_0005.jpg" alt="Guests at the Charity Ceilidh in Warsaw" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+          <figcaption style="font-family: 'Courier New', monospace; font-size: 11px; color: rgba(0,43,96,0.55); text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">The Charity Ceilidh, Warsaw</figcaption>
+        </figure>
+        <p style="margin: 0;">Since then, the Foundation has organised a Scottish charity event every year, with the exception of the two years affected by the COVID-19 pandemic. Thanks to the remarkable generosity and commitment of our sponsors, artists, donors, guests, volunteers and friends, we have raised significant funds for a range of charitable causes. Our principal beneficiaries have been TPD Helenów and Fundacja ISKIERKA, both of which are featured in greater detail elsewhere on this website.</p>
+        <p style="margin: 0;">Beyond fundraising, the Foundation has introduced countless people to the sights, sounds, traditions and hospitality of Scotland. Through music, dance, food, friendship and shared experiences, our events have helped build lasting connections between people and communities.</p>
+        <figure style="margin: 8px 0; display: flex; flex-direction: column; gap: 10px;">
+          <div style="border-radius: 12px; overflow: hidden; height: 320px; background: #001535; display: flex; align-items: flex-start; justify-content: flex-start;">
+            <img src="/images/St_Andrews_Foundation_0079.jpg" alt="Guests at the Charity Ceilidh in Warsaw" style="width: 100%; height: 100%; object-fit: cover; object-position: left top;" />
+          </div>
+          <figcaption style="font-family: 'Courier New', monospace; font-size: 11px; color: rgba(0,43,96,0.55); text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">The Charity Ceilidh, Warsaw</figcaption>
+        </figure>
+        <p style="margin: 0;">Ben Bannatyne left the Foundation when he moved away from Poland but continues to support us whenever he can. Iain Haggis, David Kennedy and Katarzyna Udd joined the Board in 2024. We are proud of what has been achieved so far, but our journey is far from over. We look forward to continuing to support worthy causes, expanding our charitable impact and sharing the very best of Scottish culture, while further strengthening the historic friendship and enduring ties between Scotland and Poland.</p>
+      </div>
+      <div style="border-left: 3px solid #8c0b20; padding-left: 20px;">
+        <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 8px 0;">In memoriam</p>
+        <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #003f8a; line-height: 1.3; margin: 0;">Co-Founding Board Member Alexander (Sandy) Hill McMillan sadly passed away in 2022 following a battle with cancer. Sandy had been treasurer and an active member of the Foundation since its inception. To mark his contribution and place in our history, our St. Andrews Foundation of Warsaw tartan was designed using elements of the McMillan tartan.</p>
+        </div>
+      </div>
+
+      <!-- Right: timeline -->
+      <div style="display: flex; flex-direction: column;">
+        {[
+          { year: '1990s', text: "Caledonian Ball established in Warsaw by Martyn O'Reilly." },
+          { year: '2015', text: 'First fundraising event under the Foundation name.' },
+          { year: '2016', text: 'St. Andrews Foundation formally established (KRS registered).' },
+          { year: '2020', text: 'Hippotherapy arena at Helenów funded by the Foundation.' },
+          { year: '2022', text: 'Sandy McMillan, founding Board Member, passes away.' },
+          { year: '2023', text: 'New Board formed: Paul Gogolinski, Iain Leyden, David Kennedy.' },
+          { year: '2024', text: 'Caledonian Ball becomes the Charity Ceilidh.' },
+          { year: '2025', text: 'Partnership with Valores Venture Philanthropy established; 5 new organisations funded.' },
+        ].map(item => (
+          <div style="border-bottom: 1px solid #e0ded8; padding: 20px 0; display: flex; gap: 32px; align-items: center;">
+            <p style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; min-width: 64px; flex-shrink: 0;">{item.year}</p>
+            <p style="font-size: 14px; color: #003f8a; line-height: 1.5; margin: 0;">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDATION VALUES -->
+  <section style="background: #f4f0e8; padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div style="background: #c8102e; height: 1px; width: 28px;"></div>
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Our values</span>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">What guides us.</h2>
+      <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      {[
+        { title: 'Compassion', text: 'A deep commitment to helping children, youth, and families facing illness, disability, or hardship.' },
+        { title: 'Inclusion', text: 'Supporting social integration and equal opportunities — especially for marginalised and minority communities.' },
+        { title: 'Community', text: 'Building strong, connected communities through culture, charity, and shared purpose.' },
+        { title: 'Cultural Heritage', text: 'Celebrating and promoting Scottish traditions and the historical connections with Poland, as a bridge between cultures and generations.' },
+      ].map(value => (
+        <div style="border-top: 1px solid #e0ded8; padding-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+          <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #002b60; margin: 0;">{value.title}</h3>
+          <p style="font-size: 16px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0;">{value.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 10TH ANNIVERSARY VIDEO SECTION -->
+<section style="padding: 0px 96px 80px 96px; display: flex; flex-direction: column; gap: 64px;">
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <div style="background: #c8102e; height: 1px; width: 28px;"></div>
+      <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">2026</span>
+    </div>
+    <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">Celebrating 10th anniversary<br/>of St. Andrews Foundation</h2>
+    <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
+  </div>
+
+  <div style="border-radius: 16px; overflow: hidden; height: 640px;">
+  <video
+  src="/videos/anniversary.mp4"
+  controls
+  loop
+  playsinline
+  style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;"
+>
+</video>
+  </div>
+</section>
+
+  <!-- BOARD MEMBERS -->
+  <section style="background-color: #001a3d; padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">The Board</span>
+        <div style="background: #c9a24a; height: 1px; width: 28px;"></div>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Five trustees, one mission.</h2>
+      <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0; max-width: 600px;">All managers of the St. Andrews Foundation serve on a voluntary basis and receive no remuneration or benefits in kind.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 40px;">
+      {[
+        { name: 'Paul Gogolinski', role: 'President', photo: '/images/paul-profile.jpg', bio: "Paul was born in 1960 in Aberdeen Scotland of a Polish father and Scots Mother. With family connections in Poland, Paul travelled to Poland frequently with his family through the 60's, 70's and 80's. During the early 90s, Paul formed a Scottish Polish Association in Aberdeen before going to South Africa for 4 years. Paul and his Polish wife eventually landed in Poland when he became MD of DaimlerChrysler Fleet Management. During this assignment, they settled in Poland and have lived here since. Paul was a founder member of the St. Andrews Foundation with Iain Leyden, Ben Bannatyne and Sandy McMillan in 2016. Paul is also a GlobalScot and has actively promoted Scotland throughout his time here and has supported the set-up of the now annual Scottish Day in Jadów." },
+        { name: 'Iain Leyden', role: 'Vice-President', photo: '/images/Iain_Leyden.png', bio: "Originally from Airdrie in North Lanarkshire, Iain was seconded to Poland in 2002 for a real estate development project. Iain has attended the St Andrew's Caledonian Ball since 2003 and especially enjoys the ceilidh dancing. Having met the Częstochowa Pipes and Drums at the filming of a Polish television show, Mamy Cię, Iain introduced them to Martyn O'Reilly and the Caledonian Ball too. He met his wonderful wife Alex in 2004, and Warsaw is now home with their son Nicky and daughter Gabi. With the assistance of Martyn, Iain surprised Alex with a marriage proposal at the 2005 Caledonian Ball. Alex thought she had a winning Lottery Ticket but instead she got Iain! At the 2006 Ball they were also delighted to announce Alex's pregnancy with Gabriella. In 2015, Iain helped to set up the St Andrew's Foundation which raises donations to help worthwhile causes and has been organizing the annual charity ball which we all know and love." },
+        { name: 'David Kennedy', role: 'Secretary', photo: '/images/ProfileDavid.jpg', bio: "David moved to Poland in the nineties, having toured the country in the late eighties as a student of Slavonic and East European Studies at Glasgow University. Since then, he's worked in various media roles and for business information and consultancy companies. David attended the first ever Caledonian Ball in 1995 in Międzylesie, organised by the pioneering duo of Martyn O'Reilly and Shona Downey and has been involved in the Saint Andrew's Foundation as a committee member since its outset in 2015, becoming a Board Member in 2023. With his wife Mirka and their three Polish-born children, David lives in Warsaw. His role has been focussed on organising media contacts for event and he valiantly captained a Scotland select football team for the first International challenge match against a crack Jadów team at the Dzień Szkocki Festival in 2022." },
+        { name: 'Katarzyna Udd', role: 'Board Member', photo:'/images/KasiaUdd.jpg', bio: "Katarzyna joined the St Andrew's Foundation team in 2023, shortly after the pandemic, at a time when the team was preparing to bring back the energy and spirit of the Caledonian Ball. With her professional background in event organisation and marketing, Katarzyna was delighted to put her experience to work for a meaningful cause and help create a celebration that brings people together. She has always been drawn to genuine experiences, authentic traditions, and the stories that connect communities across borders. Perhaps it is no surprise that Scotland's rich cultural heritage, music, and warm sense of togetherness resonate with her — values she also finds close to the Scandinavian traditions she discovered through her Swedish husband, Fredrik. From shared celebrations and folk music to a deep appreciation for history and craftsmanship, Katarzyna believes that different cultures often have more in common than we first imagine. Outside of the Foundation, Katarzyna enjoys discovering new places, meeting inspiring people, and finding the beauty in traditions that have been passed down through generations. Since joining the team, she has been bringing her creativity, organisation, and enthusiasm to the St Andrew's Foundation — helping ensure that the Caledonian Ball continues to grow as a celebration of friendship, generosity, and community." },
+        { name: 'Iain Haggis', role: 'Board Member', photo: '/images/Iain-Haggis.jpg', bio: "With the surname 'Haggis', Iain has an unmistakable connection to Scotland, even though this side of the family are Sassenachs (English)! However his mother's family comes from the most northerly mainland Scottish county of Caithness, providing him with his Scottish heritage — and rights to the clan tartan of Sinclair or Buchanan. He has been attending Caledonian Balls in Warsaw, with wife Kasia, since the beginning of the Millenium but has only recently formally joined the St Andrews Foundation team, bringing with him experience of working with numerous NGOs in Poland." },
+      ].map(member => (
+        <div style="display: flex; gap: 64px; align-items: flex-start;">
+          <div style="background: #002b60; width: 280px; min-width: 280px; height: 280px; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            {member.photo
+              ? <img src={member.photo} alt={member.name} style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
+              : <p style="font-family: 'Newsreader', serif; font-size: 96px; font-weight: 700; color: rgba(244,240,232,0.15); margin: 0;">{member.name.split(' ').map(n => n[0]).join('')}</p>
+            }
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 24px; flex: 1;">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: white; margin: 0;">{member.name}</p>
+              <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">{member.role}</p>
+            </div>
+            <p style="font-size: 14px; color: white; line-height: 1.6; margin: 0;">{member.bio}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ADVISERS -->
+  <section style="padding: 80px 96px; display: flex; justify-content: space-between; gap: 80px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div style="background: #c8102e; height: 1px; width: 28px;"></div>
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Honorary Advisers</span>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">Professional expertise,<br/>volunteered.</h2>
+      <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 32px; max-width: 611px; border-top: 1px solid rgba(0,0,0,0.08);">
+      <div style="border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 32px; display: flex; flex-direction: column; gap: 12px;">
+        <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #002b60; margin: 0;">Dentons</p>
+        <p style="font-size: 12px; font-weight: 500; color: #8c0b20; margin: 0; text-transform: uppercase;">Legal Adviser</p>
+        <p style="font-size: 14px; color: #002b60; line-height: 1.6; margin: 0;">Dentons is a global law firm with professionals in more than 80 countries. They serve as the Foundation's legal adviser, providing guidance on Polish non-profit law, governance, and compliance.</p>
+        <a href="https://dentons.com" style="font-size: 14px; font-weight: 500; color: #8c0b20; text-decoration: none;">dentons.com ↗</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #002b60; margin: 0;">Vistra Corporate Services</p>
+        <p style="font-size: 12px; font-weight: 500; color: #8c0b20; margin: 0; text-transform: uppercase;">Accountant</p>
+        <p style="font-size: 14px; color: #002b60; line-height: 1.6; margin: 0;">Vistra Poland — previously Trinity Corporate Services — has been the Foundation's accountant since its incorporation. Established in Warsaw in 2004, Vistra is a leading provider of trust and corporate services across Central and Eastern Europe.</p>
+        <a href="https://vistra.com" style="font-size: 14px; font-weight: 500; color: #8c0b20; text-decoration: none;">vistra.com ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARTAN BANNER -->
+  <section class="tartan-banner">
+    <div class="tartan-banner-pattern" aria-hidden="true"></div>
+    <div style="position: relative; z-index: 2; display: flex; flex-direction: column; gap: 16px; align-items: center; text-align: center; max-width: 720px;">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Scottish Register of Tartans</span>
+        <div style="background: #c9a24a; height: 1px; width: 28px;"></div>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 52px; font-weight: 700; font-style: italic; color: white; margin: 0; line-height: 1.05; letter-spacing: -0.01em;">We have a tartan of our own.</h2>
+      <p style="font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.6; margin: 0; max-width: 560px;">The St. Andrews Foundation has registered its own tartan in the Scottish Register of Tartans — woven from the blue of Scotland and the red of Poland, with elements of the McMillan tartan to honour Sandy McMillan.</p>
+      <a href="https://www.tartanregister.gov.uk/tartanDetails?ref=13989" target="_blank" rel="noopener noreferrer" style="font-size: 13px; font-weight: 500; color: #c9a24a; text-decoration: none;">View the registration ↗</a>
+    </div>
+  </section>
+
+  <!-- FOUNDATION STATUTE -->
+  <section style="background: #f4f0e8; padding: 80px 60px; display: flex; justify-content: center;">
+    <div style="display: flex; flex-direction: column; gap: 32px; align-items: center; max-width: 720px; text-align: center;">
+      <div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div style="background: #c8102e; height: 1px; width: 28px;"></div>
+          <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Legal</span>
+        </div>
+        <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0;">Foundation statute</h2>
+      </div>
+      <p style="font-size: 16px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0;">The Foundation statute is a public document available for download below.<br/>KRS: 0000557012. NIP: 5252622620. Registered address: ul. Złota 59, 00-120 Warszawa.</p>
+      <a href="#" style="border: 1.5px solid #003f8a; color: #003f8a; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+        Download statute (PDF) <ArrowUpRight size={18} />
+      </a>
+      <div style="border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08); display: grid; grid-template-columns: 1fr 1fr 1fr; width: 100%;">
+        <div style="border-right: 1px solid rgba(0,0,0,0.08); padding: 24px 16px; display: flex; flex-direction: column; gap: 6px; align-items: center;">
+          <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #002b60; margin: 0;">KRS 0000557012</p>
+          <p style="font-size: 12px; font-weight: 500; color: rgba(0,43,96,0.55); margin: 0; text-transform: uppercase;">Register No.</p>
+        </div>
+        <div style="border-right: 1px solid rgba(0,0,0,0.08); padding: 24px 16px; display: flex; flex-direction: column; gap: 6px; align-items: center;">
+          <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #002b60; margin: 0;">NIP 5252622620</p>
+          <p style="font-size: 12px; font-weight: 500; color: rgba(0,43,96,0.55); margin: 0; text-transform: uppercase;">Tax ID</p>
+        </div>
+        <div style="padding: 24px 16px; display: flex; flex-direction: column; gap: 6px; align-items: center;">
+          <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #002b60; margin: 0;">Reg. 2016</p>
+          <p style="font-size: 12px; font-weight: 500; color: rgba(0,43,96,0.55); margin: 0; text-transform: uppercase;">Charity Since</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .tartan-banner {
+    background-color: #001a3d;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tartan-banner-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.25;
+    background-color: #0b1f3d;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 36px,
+        rgba(200, 16, 46, 0.95) 36px 40px,
+        transparent 40px 72px,
+        #052e14 72px 76px,
+        transparent 76px 108px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 36px,
+        rgba(200, 16, 46, 0.95) 36px 40px,
+        transparent 40px 72px,
+        #052e14 72px 76px,
+        transparent 76px 108px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 18px,
+        rgba(201, 162, 74, 0.55) 18px 20px,
+        transparent 20px 54px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 18px,
+        rgba(201, 162, 74, 0.55) 18px 20px,
+        transparent 20px 54px
+      );
+  }
+</style>
