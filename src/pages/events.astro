@@ -7,7 +7,7 @@ import { ArrowUpRight } from 'lucide-astro';
 
 <Layout>
   <!-- TOP BANNER -->
-  <div style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
+  <div class="top-banner" style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
     <span>Patron · British Embassy Warsaw</span>
     <span>KRS 0000557012 · Charity reg. since 2016</span>
   </div>
@@ -21,12 +21,12 @@ import { ArrowUpRight } from 'lucide-astro';
         <span>Events</span>
         <div style="height: 1px; width: 194px; background: #c9a24a;"></div>
       </div>
-      <h1 style="font-family: 'Newsreader', serif; font-size: 72px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Where Scotland meets Poland — every year.</h1>
+      <h1 class="page-hero-title" style="font-family: 'Newsreader', serif; font-size: 72px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Where Scotland meets Poland — every year.</h1>
       <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0; max-width: 564px;">Scottish culture is promoted in Poland by various groups of Polish enthusiasts throughout the year and we admire and respect them for taking such an active interest in Scotland. Our website will reference these and we will mention events they are staging in our communications mainly on social media. Whilst the Foundation is present as a guest at various occasions, there are currently two flagship events where we are most visible. One of those is clearly the St. Andrews Foundation Charity Ceilidh and the other is the Scottish Day in Jadów where the Foundation is one of the official Patrons. This is a fantastic event that celebrates Scottish culture held usually the first Saturday in July.</p>
     </div>
 
     <!-- Event list -->
-    <div style="width: 506px; border-top: 1px solid rgba(255,255,255,0.15);">
+    <div class="hero-side-box" style="width: 506px; border-top: 1px solid rgba(255,255,255,0.15);">
       <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; display: flex; justify-content: space-between; align-items: center;">
         <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: white; margin: 0;">The Warsaw Charity Ceilidh</p>
         <p style="font-size: 16px; color: #c9a24a; margin: 0;">29 November 2026</p>
@@ -43,18 +43,18 @@ import { ArrowUpRight } from 'lucide-astro';
   </section>
 
   <!-- CEILIDH SECTION -->
-  <section style="padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
+  <section class="section-pad" style="padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
     <div style="display: flex; flex-direction: column; gap: 16px;">
       <div style="display: flex; gap: 12px; align-items: center;">
         <div style="background: #c8102e; height: 1px; width: 28px;"></div>
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Flagship Event</span>
       </div>
-      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">The Warsaw Charity Ceilidh — An amazing night of fun and giving</h2>
+      <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">The Warsaw Charity Ceilidh — An amazing night of fun and giving</h2>
       <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
     </div>
 
     <!-- Details + countdown -->
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 48px;">
+    <div class="ceilidh-details-row" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 48px;">
       <div style="display: flex; flex-direction: column; gap: 24px; max-width: 560px;">
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <span style="border: 1px solid #003f8a; color: #003f8a; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">Annual</span>
@@ -65,7 +65,7 @@ import { ArrowUpRight } from 'lucide-astro';
         <p style="font-size: 16px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0;"><strong>What is a Ceilidh?</strong> Traditional Scottish group dancing — no experience needed, and no ability to follow instructions required either. A caller guides everyone through the steps as the music plays. The less you know what you're doing, the more fun it is. Trust us.</p>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 500px;">
+      <div class="ceilidh-details-right" style="display: flex; flex-direction: column; gap: 16px; min-width: 500px;">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
           <div>
             <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #555; text-transform: uppercase; margin: 0 0 8px 0;">Date & Time</p>
@@ -96,22 +96,22 @@ import { ArrowUpRight } from 'lucide-astro';
     </div>
 
     <!-- Countdown + CTA -->
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div style="display: flex; gap: 32px;">
+    <div class="countdown-cta-row" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="countdown-row" style="display: flex; gap: 32px;">
         <div>
-          <p id="days" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; margin: 0; line-height: 1.1;">--</p>
+          <p id="days" class="countdown-num" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; margin: 0; line-height: 1.1;">--</p>
           <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">days</p>
         </div>
         <div>
-          <p id="hours" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; margin: 0; line-height: 1.1;">--</p>
+          <p id="hours" class="countdown-num" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; margin: 0; line-height: 1.1;">--</p>
           <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">hours</p>
         </div>
         <div>
-          <p id="minutes" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; margin: 0; line-height: 1.1;">--</p>
+          <p id="minutes" class="countdown-num" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; margin: 0; line-height: 1.1;">--</p>
           <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">minutes</p>
         </div>
         <div>
-          <p id="seconds" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; margin: 0; line-height: 1.1;">--</p>
+          <p id="seconds" class="countdown-num" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; margin: 0; line-height: 1.1;">--</p>
           <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">seconds</p>
         </div>
       </div>
@@ -121,15 +121,15 @@ import { ArrowUpRight } from 'lucide-astro';
     </div>
 
     <!-- Full width photo -->
-    <div style="height: 597px; background: #001535; border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; object-position: top;">
+    <div class="feature-photo" style="height: 597px; background: #001535; border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; object-position: top;">
       <img src="/images/St_Andrews_Foundation_0046.jpg" alt="St_Andrews_Foundation_0047.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
     </div>
   </section>
 <!-- PAST EDITIONS -->
-  <section style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
+  <section class="section-pad" style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
     <div style="display: flex; flex-direction: column; gap: 16px;">
       <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Past editions</span>
-      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Nine editions, one cause.</h2>
+      <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Nine editions, one cause.</h2>
       <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
     </div>
 
@@ -137,15 +137,15 @@ import { ArrowUpRight } from 'lucide-astro';
     <div style="display: flex; flex-direction: column;">
 
       <!-- Row 1 -->
-      <div style="display: flex; border-top: 1px solid #999;">
-        <div style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
+      <div class="edition-row" style="display: flex; border-top: 1px solid #999;">
+        <div class="edition-cell" style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
           <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2024</p>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Charity Ceilidh</p>
             <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6;">First edition under new name</p>
           </div>
         </div>
-        <div style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
+        <div class="edition-cell" style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
           <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2023</p>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
@@ -155,31 +155,31 @@ import { ArrowUpRight } from 'lucide-astro';
       </div>
 
       <!-- Row 2 -->
-      <div style="display: flex;">
-        <div style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
+      <div class="edition-row" style="display: flex;">
+        <div class="edition-cell" style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
           <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2022</p>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
             <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6;">Return after pandemic</p>
           </div>
         </div>
-        <div style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
+        <div class="edition-cell" style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
           <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2019</p>
           <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
         </div>
-        <div style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
+        <div class="edition-cell" style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
           <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2018</p>
           <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
         </div>
       </div>
 
       <!-- Row 3 -->
-      <div style="display: flex;">
-        <div style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
+      <div class="edition-row" style="display: flex;">
+        <div class="edition-cell" style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
           <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2018</p>
           <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
         </div>
-        <div style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
+        <div class="edition-cell" style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
           <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2016</p>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Inaugural event</p>
@@ -191,11 +191,11 @@ import { ArrowUpRight } from 'lucide-astro';
     </div>
 
     <!-- Photo bento -->
-    <div style="display: flex; gap: 16px; height: 561px;">
-      <div style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
+    <div class="photo-bento" style="display: flex; gap: 16px; height: 561px;">
+      <div class="bento-col" style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
         <img src="/images/St_Andrews_Foundation_0044.jpg" alt="Ceilidh" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
-      <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
+      <div class="bento-col" style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
         <div style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
           <img src="/images/St_Andrews_Foundation_0105.jpg" alt="Ceilidh" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
@@ -203,21 +203,21 @@ import { ArrowUpRight } from 'lucide-astro';
           <img src="/images/St_Andrews_Foundation_0070.jpg" alt="Ceilidh" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
       </div>
-      <div style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
+      <div class="bento-col" style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
         <img src="/images/St_Andrews_Foundation_0047.jpg" alt="Ceilidh" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
   </section>
 
   <!-- BURNS NIGHT -->
-  <section style="padding: 64px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+  <section class="section-pad two-col-section" style="padding: 64px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
     <div style="display: flex; flex-direction: column; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <div style="display: flex; gap: 12px; align-items: center;">
           <div style="background: #c8102e; height: 1px; width: 28px;"></div>
           <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Burns Night</span>
         </div>
-        <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">A night for Rabbie.</h2>
+        <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">A night for Rabbie.</h2>
         <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
       </div>
 
@@ -239,27 +239,27 @@ import { ArrowUpRight } from 'lucide-astro';
       </a>
     </div>
 
-    <div style="height: 458px; overflow: hidden; background: #001535;">
+    <div class="feature-photo" style="height: 458px; overflow: hidden; background: #001535;">
       <img src="/images/St_Andrews_Foundation_0005.jpg" alt="Burns Night" style="width: 100%; height: 100%; object-fit: cover;" />
     </div>
   </section>
 
   <!-- SCOTTISH DAY IN JADÓW -->
-  <section style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 48px;">
+  <section class="section-pad" style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div class="section-header-row-alt" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 48px;">
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Community Event</span>
-        <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Scottish Day in Jadów.</h2>
+        <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Scottish Day in Jadów.</h2>
         <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
       </div>
-      <p style="font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.4; margin: 0; max-width: 564px; padding-top: 48px;">Every summer, the village of Jadów hosts a Scottish cultural day that has grown into one of the most distinctive events in the Scottish-Polish calendar. Bagpipes, Highland games, Scottish food, and the warm hospitality of a Polish village — all in one afternoon. The St. Andrews Foundation has supported the Scottish Day in Jadów from the beginning, and Foundation has actively supported the event. Next Scottish Day — 4th July 2026.</p>
+      <p class="scottish-day-text" style="font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.4; margin: 0; max-width: 564px; padding-top: 48px;">Every summer, the village of Jadów hosts a Scottish cultural day that has grown into one of the most distinctive events in the Scottish-Polish calendar. Bagpipes, Highland games, Scottish food, and the warm hospitality of a Polish village — all in one afternoon. The St. Andrews Foundation has supported the Scottish Day in Jadów from the beginning, and Foundation has actively supported the event. Next Scottish Day — 4th July 2026.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; height: 529px;">
-      <div style="border-radius: 16px; overflow: hidden; background: #001535;">
+    <div class="photo-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; height: 529px;">
+      <div class="photo-grid-2-item" style="border-radius: 16px; overflow: hidden; background: #001535;">
         <img src="/images/St_Andrews_Foundation_0010.jpg" alt="Scottish Day Jadow" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
-      <div style="border-radius: 16px; overflow: hidden; background: #001535;">
+      <div class="photo-grid-2-item" style="border-radius: 16px; overflow: hidden; background: #001535;">
         <img src="/images/St_Andrews_Foundation_0006.jpg" alt="Scottish Day Jadow" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
     </div>
@@ -286,3 +286,145 @@ import { ArrowUpRight } from 'lucide-astro';
     setInterval(updateCountdown, 1000);
   </script>
 </Layout>
+
+<style>
+  /* ============ RESPONSIVE ============ */
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .top-banner {
+      padding: 10px 32px !important;
+    }
+
+    /* Bridging fix for .page-hero — works regardless of its base definition */
+    .page-hero {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 40px !important;
+      padding: 64px 32px !important;
+    }
+
+    .hero-headline-col,
+    .hero-side-box {
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    .page-hero-title {
+      font-size: 52px !important;
+    }
+
+    .section-pad {
+      padding: 48px 32px !important;
+    }
+
+    .section-title {
+      font-size: 36px !important;
+    }
+
+    .ceilidh-details-row {
+      flex-direction: column !important;
+    }
+
+    .ceilidh-details-right {
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+
+    .feature-photo {
+      height: 360px !important;
+    }
+
+    .photo-bento {
+      height: 420px !important;
+    }
+
+    .two-col-section {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+  }
+
+  /* Phones */
+  @media (max-width: 640px) {
+    .top-banner {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 4px !important;
+      padding: 10px 20px !important;
+      font-size: 10px !important;
+    }
+
+    .page-hero {
+      padding: 48px 20px !important;
+    }
+
+    .page-hero-title {
+      font-size: 34px !important;
+    }
+
+    .section-pad {
+      padding: 40px 20px !important;
+    }
+
+    .section-title {
+      font-size: 28px !important;
+    }
+
+    .countdown-cta-row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 24px !important;
+    }
+
+    .countdown-row {
+      gap: 16px !important;
+      flex-wrap: wrap;
+    }
+
+    .countdown-num {
+      font-size: 32px !important;
+    }
+
+    .feature-photo {
+      height: 220px !important;
+    }
+
+    .edition-row {
+      flex-direction: column !important;
+    }
+
+    .edition-cell {
+      border-right: none !important;
+    }
+
+    .photo-bento {
+      flex-direction: column !important;
+      height: auto !important;
+      gap: 12px !important;
+    }
+
+    .bento-col {
+      height: 220px !important;
+    }
+
+    .section-header-row-alt {
+      flex-direction: column !important;
+      gap: 24px !important;
+    }
+
+    .scottish-day-text {
+      padding-top: 0 !important;
+    }
+
+    .photo-grid-2 {
+      grid-template-columns: 1fr !important;
+      height: auto !important;
+    }
+
+    .photo-grid-2-item {
+      height: 220px !important;
+    }
+  }
+</style>

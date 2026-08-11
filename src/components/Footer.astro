@@ -2,25 +2,25 @@
 import { ArrowUpRight } from 'lucide-astro';
 ---
 
-<footer style="background-color: #001a3d; padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
+<footer class="footer" style="background-color: #001a3d; padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
   <!-- Stay in touch -->
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+  <div class="footer-newsletter" style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
     <div style="display: flex; flex-direction: column; gap: 20px;">
       <div style="display: flex; gap: 12px; align-items: center;">
         <div style="background: #c9a24a; height: 1px; width: 28px;"></div>
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Stay in touch</span>
       </div>
-      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 400; color: white; margin: 0; line-height: 1.1; letter-spacing: -0.01em;">Hear it <span style="font-style: italic; color: #c9a24a;">first</span>.</h2>
+      <h2 class="footer-heading" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 400; color: white; margin: 0; line-height: 1.1; letter-spacing: -0.01em;">Hear it <span style="font-style: italic; color: #c9a24a;">first</span>.</h2>
       <p style="font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.5; margin: 0; max-width: 500px;">Ticket releases, sponsor announcements and news from the charities we fund — a few emails a year, no more.</p>
     </div>
 
     <div style="display: flex; flex-direction: column; gap: 16px;">
-      <div style="display: flex; gap: 12px;">
+      <div class="footer-newsletter-form" style="display: flex; gap: 12px;">
         <input type="email" placeholder="your@email.com" style="flex: 1; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); border-radius: 999px; padding: 16px 24px; font-size: 16px; color: white; outline: none; font-family: inherit;" />
         <button style="background: #c9a24a; color: #001a3d; padding: 16px 32px; border-radius: 999px; border: none; font-size: 16px; font-weight: 500; cursor: pointer; white-space: nowrap; font-family: inherit;">Subscribe</button>
       </div>
       <p style="font-size: 13px; color: rgba(255,255,255,0.5); margin: 0;">We never share your address. Unsubscribe any time.</p>
-      <div style="display: flex; gap: 16px; margin-top: 8px;">
+      <div class="footer-social" style="display: flex; gap: 16px; margin-top: 8px;">
         <a href="https://www.facebook.com/standrewsfoundationpl" style="border: 1.5px solid rgba(255,255,255,0.3); color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px;">Facebook <ArrowUpRight size={15} /></a>
         <a href="#" style="border: 1.5px solid rgba(255,255,255,0.3); color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px;">Instagram <ArrowUpRight size={15} /></a>
       </div>
@@ -29,7 +29,7 @@ import { ArrowUpRight } from 'lucide-astro';
 
   <div style="background: rgba(255,255,255,0.16); height: 1px;"></div>
 
-  <div style="display: flex; gap: 32px; justify-content: space-between;">
+  <div class="footer-columns" style="display: flex; gap: 32px; justify-content: space-between;">
     <div style="display: flex; flex-direction: column; gap: 32px; max-width: 300px;">
       <a href="/" style="font-family: 'Newsreader', serif; font-size: 20px; font-weight: 700; color: white; text-decoration: none;">St. Andrews Foundation</a>
       <div style="font-size: 14px; color: #e0ded8; line-height: 1.6;">
@@ -38,7 +38,7 @@ import { ArrowUpRight } from 'lucide-astro';
         <p style="margin: 0;">00-071 Warsaw, Poland</p>
       </div>
     </div>
-    <div style="display: flex; gap: 32px;">
+    <div class="footer-link-groups" style="display: flex; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 12px; min-width: 160px;">
         <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0;">Foundation</p>
         <div style="background: rgba(255,255,255,0.16); height: 1px;"></div>
@@ -72,7 +72,7 @@ import { ArrowUpRight } from 'lucide-astro';
 
   <div style="background: rgba(255,255,255,0.16); height: 1px;"></div>
 
-  <div style="display: flex; justify-content: space-between; align-items: center;">
+  <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center;">
     <p style="font-size: 14px; color: #e0ded8; margin: 0;">© 2026 St. Andrews Foundation</p>
     <div style="display: flex; gap: 16px;">
       <a href="https://www.facebook.com/standrewsfoundationpl" style="color: #e0ded8; text-decoration: none; font-size: 14px;">Facebook</a>
@@ -82,3 +82,63 @@ import { ArrowUpRight } from 'lucide-astro';
     </div>
   </div>
 </footer>
+
+<style>
+  @media (max-width: 900px) {
+    .footer {
+      padding: 56px 32px !important;
+      gap: 32px !important;
+    }
+
+    .footer-newsletter {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+
+    .footer-heading {
+      font-size: 36px !important;
+    }
+
+    .footer-columns {
+      flex-direction: column !important;
+      gap: 32px !important;
+    }
+
+    .footer-link-groups {
+      flex-wrap: wrap !important;
+      gap: 32px 24px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer {
+      padding: 40px 20px !important;
+    }
+
+    .footer-heading {
+      font-size: 30px !important;
+    }
+
+    .footer-newsletter-form {
+      flex-direction: column !important;
+    }
+
+    .footer-social {
+      flex-wrap: wrap !important;
+    }
+
+    .footer-link-groups {
+      gap: 28px !important;
+    }
+
+    .footer-link-groups > div {
+      min-width: 42% !important;
+    }
+
+    .footer-bottom {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 16px !important;
+    }
+  }
+</style>

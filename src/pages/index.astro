@@ -7,7 +7,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
 
 <Layout>
   <!-- TOP BANNER -->
-  <div style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
+  <div class="top-banner" style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
     <span>Patron · British Embassy Warsaw</span>
     <span>KRS 0000557012 · Charity reg. since 2016</span>
   </div>
@@ -68,47 +68,47 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
   </section>
 
   <!-- STATS BAR -->
-  <section style="background: linear-gradient(170deg, #052e14 0%, #030c08 71%); margin: 0 96px; border-radius: 16px; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: center; margin-top: -40px; position: relative; z-index: 3;">
-    <div style="padding: 32px;">
+  <section class="stats-bar" style="background: linear-gradient(170deg, #052e14 0%, #030c08 71%); margin: 0 96px; border-radius: 16px; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: center; margin-top: -40px; position: relative; z-index: 3;">
+    <div class="stat-block" style="padding: 32px;">
       <p style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: white; margin: 0; line-height: 1.1; white-space: nowrap;">1M+</p>
       <div style="background: #c9a24a; height: 2px; width: 80px; margin: 12px 0;"></div>
       <p style="font-size: 16px; color: #f5f5f3; margin: 0; line-height: 1.6;">PLN Raised since 2016</p>
     </div>
-    <div style="background: rgba(224,222,216,0.5); width: 1px; height: 116px;"></div>
-    <div style="padding: 32px;">
+    <div class="stat-divider" style="background: rgba(224,222,216,0.5); width: 1px; height: 116px;"></div>
+    <div class="stat-block" style="padding: 32px;">
       <p style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">8</p>
       <div style="background: #c9a24a; height: 2px; width: 80px; margin: 12px 0;"></div>
       <p style="font-size: 16px; color: #f5f5f3; margin: 0; line-height: 1.6;">Organisations supported</p>
     </div>
-    <div style="background: rgba(224,222,216,0.5); width: 1px; height: 116px;"></div>
-    <div style="padding: 32px;">
+    <div class="stat-divider" style="background: rgba(224,222,216,0.5); width: 1px; height: 116px;"></div>
+    <div class="stat-block" style="padding: 32px;">
       <p style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">9</p>
       <div style="background: #c9a24a; height: 2px; width: 80px; margin: 12px 0;"></div>
       <p style="font-size: 16px; color: #f5f5f3; margin: 0; line-height: 1.6;">Ceilidh editions</p>
     </div>
-    <div style="background: rgba(224,222,216,0.5); width: 1px; height: 116px;"></div>
-    <div style="padding: 32px;">
+    <div class="stat-divider" style="background: rgba(224,222,216,0.5); width: 1px; height: 116px;"></div>
+    <div class="stat-block" style="padding: 32px;">
       <p style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">15+</p>
       <div style="background: #c9a24a; height: 2px; width: 80px; margin: 12px 0;"></div>
       <p style="font-size: 16px; color: #f5f5f3; margin: 0; line-height: 1.6;">Years active</p>
     </div>
   </section>
 <!-- CEILIDH EVENT SECTION -->
-  <section style="padding: 64px 96px;">
+  <section class="section-pad" style="padding: 64px 96px;">
     <div style="display: flex; flex-direction: column; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <div style="display: flex; gap: 12px; align-items: center;">
           <div style="background: #c8102e; height: 1px; width: 28px;"></div>
           <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Flagship Event</span>
         </div>
-        <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: black; margin: 0; letter-spacing: -0.01em;">The Warsaw Charity Ceilidh — An amazing night of fun and giving</h2>
+        <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: black; margin: 0; letter-spacing: -0.01em;">The Warsaw Charity Ceilidh — An amazing night of fun and giving</h2>
         <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
       </div>
 
-      <div style="border: 1px solid #e0ded8; border-radius: 16px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;">
+      <div class="ceilidh-grid" style="border: 1px solid #e0ded8; border-radius: 16px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;">
         <!-- Left image placeholder -->
-        <img src="/images/ceilidh.jpg" alt="Ceilidh 2025" style="height: 732px; width: 100%; object-fit: cover;" />
-        <div style="padding: 48px; display: flex; flex-direction: column; justify-content: space-between; height: 732px; box-sizing: border-box;">
+        <img class="ceilidh-image" src="/images/ceilidh.jpg" alt="Ceilidh 2025" style="height: 732px; width: 100%; object-fit: cover;" />
+        <div class="ceilidh-content" style="padding: 48px; display: flex; flex-direction: column; justify-content: space-between; height: 732px; box-sizing: border-box;">
           <div style="display: flex; flex-direction: column; gap: 16px;">
             <div style="display: flex; gap: 8px; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">
               <span>9th edition</span><span>·</span><span>November 2026</span>
@@ -119,8 +119,8 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
 
           <p style="font-size: 18px; color: #333; line-height: 1.4; margin: 0;">Our annual charity gala — Częstochowa Pipes and Drums, dancing to the popular Cutting Edge Ceilidh Band from Scotland, great food, haggis, whisky, and a 100-year-old room in the heart of Warsaw. All proceeds go to ill and disadvantaged young Poles.</p>
 
-          <div style="border-top: 1px solid #e0ded8; border-bottom: 1px solid #e0ded8; padding: 16px 0; display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="ceilidh-meta" style="border-top: 1px solid #e0ded8; border-bottom: 1px solid #e0ded8; padding: 16px 0; display: flex; flex-direction: column; gap: 16px;">
+            <div class="ceilidh-meta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
               <div>
                 <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #555; text-transform: uppercase; margin: 0 0 8px 0;">Date & Time</p>
                 <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #333; margin: 0; line-height: 1.3;">29 November 2026<br/>18:30</p>
@@ -130,7 +130,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
                 <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #333; margin: 0; line-height: 1.3;">Reduta Banku Polskiego, Warsaw</p>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="ceilidh-meta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
               <div>
                 <p style="font-family: 'Courier New', monospace; font-size: 12px; color: #555; text-transform: uppercase; margin: 0 0 8px 0;">Patron</p>
                 <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #333; margin: 0; line-height: 1.3;">British Embassy Warsaw</p>
@@ -143,26 +143,26 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
           </div>
 
           <!-- Countdown -->
-          <div style="display: flex; gap: 32px; align-items: center;" id="countdown">
+          <div class="countdown-row" style="display: flex; gap: 32px; align-items: center;" id="countdown">
             <div style="display: flex; flex-direction: column;">
-              <span id="days" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; line-height: 1.1;">--</span>
+              <span id="days" class="countdown-num" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; line-height: 1.1;">--</span>
               <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em;">days</span>
             </div>
             <div style="display: flex; flex-direction: column;">
-              <span id="hours" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; line-height: 1.1;">--</span>
+              <span id="hours" class="countdown-num" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; line-height: 1.1;">--</span>
               <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em;">hours</span>
             </div>
             <div style="display: flex; flex-direction: column;">
-              <span id="minutes" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; line-height: 1.1;">--</span>
+              <span id="minutes" class="countdown-num" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; line-height: 1.1;">--</span>
               <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em;">minutes</span>
             </div>
             <div style="display: flex; flex-direction: column;">
-              <span id="seconds" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; line-height: 1.1;">--</span>
+              <span id="seconds" class="countdown-num" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #003f8a; line-height: 1.1;">--</span>
               <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 0.04em;">seconds</span>
             </div>
           </div>
 
-          <div style="display: flex; gap: 32px; align-items: center;">
+          <div class="ceilidh-buttons" style="display: flex; gap: 32px; align-items: center;">
             <a href="/events" style="background: #003f8a; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px;
 			">Buy tickets <ArrowUpRight size={18} /></a>
             <a href="/events" style="border: 1.5px solid #003f8a; color: #003f8a; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500;">Check all events</a>
@@ -195,11 +195,11 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
     setInterval(updateCountdown, 1000);
   </script>
   <!-- CHARITIES SECTION -->
-  <section style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+  <section class="section-pad" style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div class="section-header-row" style="display: flex; justify-content: space-between; align-items: flex-end;">
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;">
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Where the funds go</span>
-        <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">The organizations we support</h2>
+        <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">The organizations we support</h2>
         <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
         <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0;">Every złoty raised at the Ceilidh reaches a named cause. We work directly with our partner organisations — no administration fees, no deductions.</p>
       </div>
@@ -207,47 +207,31 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
     </div>
 
     <!-- Charity Cards -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+    <div class="cards-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
 
       <!-- Card 1 -->
-      <div style="background: white; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 4px 12px rgba(14,14,28,0.06); justify-content: space-between;">
+      <div style="background: white; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 4px 12px rgba(14,14,28,0.06);">
         <img src="/images/fundacja-iskierka.png" alt="Fundacja Iskierka" style="border-radius: 12px; height: 200px; width: 100%; object-fit: cover;" />
         <div style="background: #c8d9f2; display: inline-flex; padding: 4px 12px; border-radius: 999px;">
           <span style="font-size: 12px; font-weight: 600; color: #001535;">Children · Cancer</span>
         </div>
         <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #333; margin: 0; line-height: 1.25;">Fundacja Iskierka</h3>
         <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">Since 2006, Fundacja Iskierka has been building support systems, therapies, and educational programmes in the field of paediatric oncology. Iskierka is our primary beneficiary and the heart of everything we do.</p>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <div style="background: #f5f5f3; border-radius: 999px; height: 8px; overflow: hidden;">
-            <div style="background: #c8102e; height: 8px; width: 50%; border-radius: 999px;"></div>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="font-weight: 600; color: #333;">PLN 12,500 raised</span>
-          </div>
-        </div>
       </div>
 
       <!-- Card 3 -->
-      <div style="background: white; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 4px 12px rgba(14,14,28,0.06); justify-content: space-between;">
-        <img src="/images/centrumrehabilitacji.jpg" alt="Fundacja Iskierka" style="border-radius: 12px; height: 200px; width: 100%; object-fit: cover;" />
+      <div style="background: white; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 4px 12px rgba(14,14,28,0.06);">
+        <img src="/images/centrumrehabilitacji.jpg" alt="Centrum Rehabilitacji Helenów" style="border-radius: 12px; height: 200px; width: 100%; object-fit: cover;" />
         <div style="background: #c8d9f2; display: inline-flex; padding: 4px 12px; border-radius: 999px;">
           <span style="font-size: 12px; font-weight: 600; color: #001535;">Children · Disabilities</span>
         </div>
         <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #333; margin: 0; line-height: 1.25;">Centrum Rehabilitacji Helenów</h3>
         <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">The Rehabilitation, Education and Care Centre TPD Helenów provides comprehensive functional and social rehabilitation for disabled children and teenagers in Warsaw. In 2020, the Foundation funded a hippotherapy arena at Helenów - a dedicated facility for horse-assisted therapy, opened on 24 June 2020..</p>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <div style="background: #f5f5f3; border-radius: 999px; height: 8px; overflow: hidden;">
-            <div style="background: #c8102e; height: 8px; width: 50%; border-radius: 999px;"></div>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px;">
-            <span style="font-weight: 600; color: #333;">PLN 2,500 raised</span>
-          </div>
-        </div>
       </div>
     </div>
 
     <!-- Donate Card -->
-    <div id="donate" style="background: white; border: 1px solid #e0ded8; border-radius: 16px; padding: 48px 56px; max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; box-shadow: 0 4px 24px rgba(14,14,28,0.06);">
+    <div id="donate" class="donate-card" style="background: white; border: 1px solid #e0ded8; border-radius: 16px; padding: 48px 56px; max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; box-shadow: 0 4px 24px rgba(14,14,28,0.06);">
       <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #001a3d; text-transform: uppercase; letter-spacing: 0.04em;">Donate</span>
       <h2 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #001a3d; margin: 0; line-height: 1.15;">Powered by volunteers, driven by generosity so every donation goes further.</h2>
       <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0; max-width: 500px;">100% of donations reach our partner charities. No administration fees, no deductions — every złoty matters.</p>
@@ -257,15 +241,15 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
   </section>
 
 <!-- SPONSORS SECTION -->
-  <section style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
+  <section class="section-pad" style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
     <div style="display: flex; flex-direction: column; gap: 16px;">
       <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Patrons of the 2026 Ceilidh</span>
-      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Your Partnership Makes the Difference in something Extraordinary</h2>
+      <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Your Partnership Makes the Difference in something Extraordinary</h2>
       <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
       <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0; max-width: 600px;">By helping offset the cost of staging the event, our sponsors enable us to maximise the charitable impact of every Ceilidh. In return, your brand is showcased alongside Warsaw's diplomatic community, business leaders and Scotland's community in Poland at one of the city's most prestigious charity events.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #e0ded8; border-left: 1px solid #e0ded8;">
+    <div class="sponsors-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #e0ded8; border-left: 1px solid #e0ded8;">
       <div style="background: #003f8a; border-right: 1px solid #e0ded8; border-bottom: 1px solid #e0ded8; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 48px;">
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #ebf1fa; text-transform: uppercase; letter-spacing: 0.04em;">9th edition</span>
         <p style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #f5f5f3; margin: 0; text-align: center;">Dom Whisky</p>
@@ -300,25 +284,25 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
       </div>
     </div>
 
-    <div style="display: flex; gap: 48px; align-items: center; justify-content: right;">
+    <div class="sponsor-cta-row" style="display: flex; gap: 48px; align-items: center; justify-content: right;">
       <p style="font-size: 16px; color: white; margin: 0;">Sponsorship from 25 000 zł / £5 000. Bilingual prospectus on request.</p>
       <a href="/sponsors" style="background: #c8102e; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500;">Sponsor the 2026 Ceilidh</a>
     </div>
   </section>
 
   <!-- BOARD MEMBERS -->
-  <section style="padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+  <section class="section-pad" style="padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div class="section-header-row" style="display: flex; justify-content: space-between; align-items: flex-end;">
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;">
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">The Foundation's volunteer board</span>
-        <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #333; margin: 0; letter-spacing: -0.01em;">Five trustees, one mission.</h2>
+        <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #333; margin: 0; letter-spacing: -0.01em;">Five trustees, one mission.</h2>
         <div style="background: #c8102e; height: 4px; width: 80px;"></div>
         <p style="font-size: 18px; color: #333; line-height: 1.4; margin: 0;">All managers of the St. Andrews Foundation serve on a voluntary basis and receive no remuneration or benefits in kind.</p>
       </div>
       <a href="/about" style="border: 1.5px solid #333; color: #333; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 16px; font-weight: 500; white-space: nowrap; display: flex; align-items: center; gap: 8px; ">Meet the full board <ArrowUpRight size={18} /></a>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
+    <div class="board-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 19px;">
 	  <img src="/images/paul-profile.jpg" alt="Paul Gogolinski" style="border-radius: 16px; height: 352px; width: 100%; object-fit: cover; object-position: center;" />
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Foundation President</span>
@@ -326,15 +310,13 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
         <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">Paul was born in 1960 in Aberdeen Scotland of a Polish father and Scots Mother. With family connections in Poland, Paul travelled to Poland frequently with his family through the 60's, 70's and 80's. Paul was a founder member of the St. Andrews Foundation with Iain Leyden, Ben Bannatyne and Sandy McMillan in 2016. Paul is also a GlobalScot and has actively promoted Scotland throughout his time here and has supported the set-up of the now annual Scottish Day in Jadów.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 19px;">
-        <div style="border-radius: 16px; height: 352px; width: 100%; overflow: hidden; background: #6b6b6b; display: flex; align-items: center; justify-content: center;">
-          <img src="/images/Iain_Leyden.png" alt="Iain Leyden" style="width: 100%; height: 100%; object-fit: contain; object-position: center;" />
-        </div>
+	  <img src="/images/Iain_Leyden.png" alt="Iain Leyden" style="border-radius: 16px; height: 352px; width: 100%; object-fit: cover; object-position: center;" />
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Foundation Vice-President</span>
         <h3 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #333; margin: 0; line-height: 1.2;">Iain Leyden</h3>
         <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">Originally from Airdrie in North Lanarkshire, Iain was seconded to Poland in 2002. With the assistance of Martyn, Iain surprised Alex with a marriage proposal at the 2005 Caledonian Ball. Alex thought she had a winning Lottery Ticket but instead she got Iain! In 2015, Iain helped to set up the St Andrew's Foundation which raises donations to help worthwhile causes and has been organizing the annual charity ball which we all know and love.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 19px;">
-        <div style="background: #f5f5f3; border-radius: 16px; height: 352px;"></div>
+	  <img src="/images/ProfileDavid.jpg" alt="David Kennedy" style="border-radius: 16px; height: 352px; width: 100%; object-fit: cover; object-position: center;" />
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Foundation Secretary</span>
         <h3 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #333; margin: 0; line-height: 1.2;">David Kennedy</h3>
         <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">David moved to Poland in the nineties and attended the first Caledonian Ball in 1995. He joined the St Andrew's Foundation as a committee member in 2015 and became a Board Member in 2023. His role has been focussed on organising media contacts for event.</p>
@@ -449,5 +431,174 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
     padding: 40px;
     width: 380px;
     backdrop-filter: blur(4px);
+  }
+
+  /* ============ RESPONSIVE ============ */
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .top-banner {
+      padding: 10px 32px !important;
+    }
+
+    .hero {
+      padding: 96px 48px !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 48px !important;
+    }
+
+    .hero-event-card {
+      width: 100% !important;
+    }
+
+    .hero-title-line {
+      font-size: 56px !important;
+    }
+
+    .stats-bar {
+      margin: 0 32px !important;
+      grid-template-columns: 1fr 1fr !important;
+    }
+
+    .stat-divider {
+      display: none !important;
+    }
+
+    .stat-block {
+      padding: 24px !important;
+    }
+
+    .section-pad {
+      padding: 48px 32px !important;
+    }
+
+    .section-title {
+      font-size: 36px !important;
+    }
+
+    .ceilidh-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .ceilidh-image {
+      height: 320px !important;
+    }
+
+    .ceilidh-content {
+      height: auto !important;
+      padding: 32px !important;
+      gap: 24px;
+    }
+
+    .cards-grid-2 {
+      grid-template-columns: 1fr !important;
+    }
+
+    .sponsors-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .board-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+
+    .donate-card {
+      padding: 40px 32px !important;
+    }
+  }
+
+  /* Phones */
+  @media (max-width: 640px) {
+    .top-banner {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 4px !important;
+      padding: 10px 20px !important;
+      font-size: 10px !important;
+    }
+
+    .hero {
+      padding: 64px 24px !important;
+    }
+
+    .hero-title-line {
+      font-size: 38px !important;
+    }
+
+    .hero-actions {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 16px !important;
+    }
+
+    .hero-actions a {
+      justify-content: center !important;
+      text-align: center;
+    }
+
+    .stats-bar {
+      margin: 0 16px !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .section-pad {
+      padding: 40px 20px !important;
+    }
+
+    .section-title {
+      font-size: 28px !important;
+    }
+
+    .section-header-row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 24px !important;
+    }
+
+    .ceilidh-meta-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .countdown-row {
+      gap: 16px !important;
+      flex-wrap: wrap;
+    }
+
+    .countdown-num {
+      font-size: 32px !important;
+    }
+
+    .ceilidh-buttons {
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+
+    .ceilidh-buttons a {
+      justify-content: center !important;
+      text-align: center;
+    }
+
+    .sponsors-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .sponsor-cta-row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 20px !important;
+    }
+
+    .board-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .donate-card {
+      padding: 32px 20px !important;
+    }
+
+    .donate-card h2 {
+      font-size: 26px !important;
+    }
   }
 </style>

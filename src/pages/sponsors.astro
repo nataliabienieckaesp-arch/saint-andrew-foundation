@@ -7,7 +7,7 @@ import { ArrowUpRight } from 'lucide-astro';
 
 <Layout>
   <!-- TOP BANNER -->
-  <div style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
+  <div class="top-banner" style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
     <span>Patron · British Embassy Warsaw</span>
     <span>KRS 0000557012 · Charity reg. since 2016</span>
   </div>
@@ -21,7 +21,7 @@ import { ArrowUpRight } from 'lucide-astro';
         <span>Sponsors</span>
         <div style="height: 1px; width: 194px; background: #c9a24a;"></div>
       </div>
-      <h1 style="font-family: 'Newsreader', serif; font-size: 72px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Your Partnership Makes the Difference in something Extraordinary</h1>
+      <h1 class="page-hero-title" style="font-family: 'Newsreader', serif; font-size: 72px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Your Partnership Makes the Difference in something Extraordinary</h1>
       <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0; max-width: 564px;">By helping offset the cost of staging the event, our sponsors enable us to maximise the charitable impact of every Ceilidh. In return, your brand is showcased alongside Warsaw's diplomatic community, business leaders and Scotland's community in Poland at one of the city's most prestigious charity events.</p>
       <a href="#sponsor" style="background: #c9a24a; color: #001a3d; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;">
         Become a sponsor <ArrowUpRight size={18} />
@@ -29,7 +29,7 @@ import { ArrowUpRight } from 'lucide-astro';
     </div>
 
     <!-- Sponsorship tiers -->
-    <div style="width: 506px; display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.15);">
+    <div class="hero-side-box" style="width: 506px; display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.15);">
       <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 20px 0; display: flex; justify-content: space-between; align-items: center;">
         <div style="display: flex; align-items: center; gap: 12px;">
           <div style="background: #c9a24a; width: 8px; height: 8px; border-radius: 999px;"></div>
@@ -62,8 +62,8 @@ import { ArrowUpRight } from 'lucide-astro';
   </section>
 
   <!-- WHY SPONSOR STATS -->
-  <section style="background: #f4f0e8; padding: 64px 96px;">
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;">
+  <section class="section-pad" style="background: #f4f0e8; padding: 64px 96px;">
+    <div class="why-sponsor-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <p style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; line-height: 1.1;">300+</p>
         <p style="font-size: 16px; color: rgba(0,43,96,0.7); margin: 0; line-height: 1.5;">Guests per edition</p>
@@ -84,18 +84,18 @@ import { ArrowUpRight } from 'lucide-astro';
   </section>
 
   <!-- 2026 SPONSORS GRID -->
-  <section style="padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
+  <section class="section-pad" style="padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
     <div style="display: flex; flex-direction: column; gap: 16px;">
       <div style="display: flex; gap: 12px; align-items: center;">
         <div style="background: #c8102e; height: 1px; width: 28px;"></div>
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">2026 Ceilidh</span>
       </div>
-      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">Patrons of the 2026 edition.</h2>
+      <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">Patrons of the 2026 edition.</h2>
       <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
     </div>
 
     <!-- Title sponsor -->
-    <div style="border: 2px solid #c9a24a; border-radius: 16px; padding: 48px; display: flex; justify-content: space-between; align-items: center; gap: 48px;">
+    <div class="title-sponsor-row" style="border: 2px solid #c9a24a; border-radius: 16px; padding: 48px; display: flex; justify-content: space-between; align-items: center; gap: 48px;">
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Title Sponsor</span>
         <h3 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #002b60; margin: 0;">Dom Whisky</h3>
@@ -108,7 +108,7 @@ import { ArrowUpRight } from 'lucide-astro';
     </div>
 
     <!-- Gold sponsors -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+    <div class="gold-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
       {[
         { name: 'Glenfiddich', tier: 'Gold Sponsor', desc: 'The world\'s most awarded single malt Scotch whisky. Proud supporter of Scottish culture in Poland.', url: 'glenfiddich.com' },
         { name: 'Berry Bros. & Rudd', tier: 'Gold Sponsor', desc: 'Britain\'s oldest wine and spirits merchant, established in 1698. Supplying fine Scotch to the Ceilidh since 2022.', url: 'bbr.com' },
@@ -130,7 +130,7 @@ import { ArrowUpRight } from 'lucide-astro';
     </div>
 
     <!-- Silver/table sponsors grid -->
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #e0ded8; border-left: 1px solid #e0ded8;">
+    <div class="sponsor-wall" style="display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #e0ded8; border-left: 1px solid #e0ded8;">
       {[
         { name: 'Reduta Banku Polskiego', tier: 'Venue Partner' },
         { name: 'Innis & Gunn', tier: 'Silver Sponsor' },
@@ -150,17 +150,17 @@ import { ArrowUpRight } from 'lucide-astro';
   </section>
 
   <!-- BENEFITS SECTION -->
-  <section style="background: #001a3d; padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px;">
+  <section class="section-pad" style="background: #001a3d; padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
+    <div class="benefits-header-row" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px;">
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 500px;">
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Why sponsor</span>
-        <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">What your sponsorship includes.</h2>
+        <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">What your sponsorship includes.</h2>
         <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
       </div>
       <p style="font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.4; margin: 0; max-width: 500px;">Every sponsorship package is tailored. Below are indicative benefits — we're happy to discuss bespoke arrangements.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.1);">
+    <div class="benefits-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.1);">
       {[
         { tier: 'Title', price: 'PLN 50,000+', benefits: ['Logo on all materials', 'Named table of 10', 'Speaking slot', 'Auction naming rights', 'Full-page programme ad', 'Social media campaign', 'Post-event report'] },
         { tier: 'Gold', price: 'PLN 25,000+', benefits: ['Logo on key materials', 'Table of 10', 'Half-page programme ad', 'Social media mention', 'Post-event report'] },
@@ -187,13 +187,13 @@ import { ArrowUpRight } from 'lucide-astro';
   </section>
 
   <!-- BECOME A SPONSOR FORM -->
-  <section id="sponsor" style="background: #f4f0e8; padding: 80px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+  <section id="sponsor" class="section-pad sponsor-form-section" style="background: #f4f0e8; padding: 80px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
     <div style="display: flex; flex-direction: column; gap: 24px;">
       <div style="display: flex; gap: 12px; align-items: center;">
         <div style="background: #c8102e; height: 1px; width: 28px;"></div>
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Get involved</span>
       </div>
-      <h2 style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">Put your brand where generosity, elegance, and celebration meet.</h2>
+      <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">Put your brand where generosity, elegance, and celebration meet.</h2>
       <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
       <p style="font-size: 18px; color: rgba(0,43,96,0.8); line-height: 1.4; margin: 0;">Sponsorship packages start from PLN 6,000 / £1,200. A bilingual sponsorship prospectus is available on request. We respond to all enquiries within 48 hours.</p>
       <p style="font-size: 16px; color: rgba(0,43,96,0.8); line-height: 1.6; margin: 0;">Want to support the Ceilidh without a full sponsorship package? Donate a product, service, or experience to our auction or lottery — completely free of charge. Past prizes have included a weekend with a Volvo, aged whisky and magnum wines, golf passes, gym memberships, spa kits, designer accessories, and original artwork. Let your brand be part of the excitement.</p>
@@ -213,37 +213,113 @@ import { ArrowUpRight } from 'lucide-astro';
       </div>
     </div>
 
-    <div style="background: white; border-radius: 16px; padding: 40px; display: flex; flex-direction: column; gap: 20px;">
-      <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #002b60; margin: 0;">Request a prospectus</h3>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Company name</label>
-        <input type="text" placeholder="Your company" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box;" />
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Contact name</label>
-        <input type="text" placeholder="Your name" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box;" />
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Email</label>
-        <input type="email" placeholder="you@company.com" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box;" />
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Sponsorship tier interest</label>
-        <select style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box; background: white; color: #333;">
-          <option>Title Sponsor — PLN 50,000+</option>
-          <option>Gold Sponsor — PLN 25,000+</option>
-          <option>Silver Sponsor — PLN 10,000+</option>
-          <option>Table Sponsor — PLN 6,000+</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Message (optional)</label>
-        <textarea placeholder="Any questions or specific requirements?" rows="3" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box; resize: vertical; font-family: inherit;"></textarea>
-      </div>
-      <button style="background: #003f8a; color: white; padding: 16px 32px; border-radius: 999px; border: none; font-size: 18px; font-weight: 500; cursor: pointer; width: 100%;">Request prospectus</button>
-    </div>
+    <form
+  name="sponsor-enquiry"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  style="background: white; border-radius: 16px; padding: 40px; display: flex; flex-direction: column; gap: 20px;"
+>
+  <input type="hidden" name="form-name" value="sponsor-enquiry" />
+  <p style="display: none;"><label>Leave empty: <input name="bot-field" /></label></p>
+
+  <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: #002b60; margin: 0;">Request a prospectus</h3>
+
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Company name</label>
+    <input type="text" name="company" required placeholder="Your company" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box;" />
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Contact name</label>
+    <input type="text" name="name" required placeholder="Your name" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box;" />
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Email</label>
+    <input type="email" name="email" required placeholder="you@company.com" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box;" />
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Sponsorship tier interest</label>
+    <select name="tier" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box; background: white; color: #333;">
+      <option>Title Sponsor — PLN 50,000+</option>
+      <option>Gold Sponsor — PLN 25,000+</option>
+      <option>Silver Sponsor — PLN 10,000+</option>
+      <option>Table Sponsor — PLN 6,000+</option>
+      <option>Not sure yet</option>
+    </select>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <label style="font-size: 12px; font-weight: 500; color: #555; text-transform: uppercase; letter-spacing: 0.04em;">Message (optional)</label>
+    <textarea name="message" placeholder="Any questions or specific requirements?" rows="3" style="border: 1px solid #e0ded8; border-radius: 8px; padding: 12px 16px; font-size: 16px; outline: none; width: 100%; box-sizing: border-box; resize: vertical; font-family: inherit;"></textarea>
+  </div>
+  <button type="submit" style="background: #003f8a; color: white; padding: 16px 32px; border-radius: 999px; border: none; font-size: 18px; font-weight: 500; cursor: pointer; width: 100%;">Request prospectus</button>
+</form>
   </section>
 
   <Footer />
 </Layout>
+
+<style>
+  /* ============ RESPONSIVE ============ */
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .top-banner { padding: 10px 32px !important; }
+
+    .page-hero {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 40px !important;
+      padding: 64px 32px !important;
+    }
+    .hero-headline-col,
+    .hero-side-box { width: 100% !important; min-width: 0 !important; }
+    .page-hero-title { font-size: 52px !important; }
+
+    .section-pad { padding: 48px 32px !important; }
+    .section-title { font-size: 36px !important; }
+
+    .why-sponsor-grid { grid-template-columns: 1fr 1fr !important; }
+
+    .title-sponsor-row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 24px !important;
+    }
+    .gold-grid { grid-template-columns: 1fr !important; }
+    .sponsor-wall { grid-template-columns: repeat(2, 1fr) !important; }
+
+    .benefits-header-row {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 24px !important;
+    }
+    .benefits-grid { grid-template-columns: 1fr 1fr !important; }
+
+    .sponsor-form-section {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+    }
+  }
+
+  /* Phones */
+  @media (max-width: 640px) {
+    .top-banner {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 4px !important;
+      padding: 10px 20px !important;
+      font-size: 10px !important;
+    }
+
+    .page-hero { padding: 48px 20px !important; }
+    .page-hero-title { font-size: 34px !important; }
+
+    .section-pad { padding: 40px 20px !important; }
+    .section-title { font-size: 28px !important; }
+
+    .why-sponsor-grid { grid-template-columns: 1fr !important; }
+    .sponsor-wall { grid-template-columns: 1fr !important; }
+    .benefits-grid { grid-template-columns: 1fr !important; }
+  }
+</style>

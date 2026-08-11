@@ -15,7 +15,7 @@ const links = [
 ] as const;
 
 function linkStyle(id: string) {
-  const base = 'font-size: 16px; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px;';
+  const base = 'font-size: 16px; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; display: block;';
   if (current === id) {
     return `${base} color: #001535; background: #c8d9f2;`;
   }
@@ -23,7 +23,7 @@ function linkStyle(id: string) {
 }
 ---
 
-<nav style="background-color: #f4f0e8; padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e0ded8;">
+<nav class="navbar" style="background-color: #f4f0e8; padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e0ded8;">
   <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0;">
     <img
       src="/images/logo.png"
@@ -31,12 +31,19 @@ function linkStyle(id: string) {
       style="height: 44px; width: auto; display: block; filter: invert(1);"
     />
   </a>
-  <div style="display: flex; gap: 4px; white-space: nowrap; flex-shrink: 0;">
+
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" style="display: flex; gap: 4px; white-space: nowrap; flex-shrink: 0;">
     {links.map((link) => (
       <a href={link.href} style={linkStyle(link.id)}>{link.label}</a>
     ))}
   </div>
-  <div style="display: flex; gap: 16px; align-items: center;">
+  <div class="nav-right" style="display: flex; gap: 16px; align-items: center;">
     <div style="border: 1px solid #e0ded8; border-radius: 24px; padding: 3px; display: flex;">
       <span style="background: #003f8a; color: white; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 500;">EN</span>
       <span style="color: #333; padding: 6px 10px; font-size: 12px; font-weight: 500;">PL</span>
@@ -44,3 +51,81 @@ function linkStyle(id: string) {
     <a href="/#donate" style="background-color: #c8102e; color: white; padding: 8px 16px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 500;">Donate</a>
   </div>
 </nav>
+
+<style>
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #001a3d;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .navbar {
+      padding: 16px 24px !important;
+      flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none !important;
+      flex-direction: column !important;
+      width: 100%;
+      gap: 0 !important;
+      order: 3;
+    }
+
+    .nav-links.open {
+      display: flex !important;
+    }
+
+    .nav-links a {
+      padding: 14px 12px !important;
+      border-radius: 0 !important;
+      border-bottom: 1px solid #e0ded8;
+    }
+
+    .nav-right {
+      gap: 10px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .navbar {
+      padding: 12px 16px !important;
+    }
+
+    .nav-right a {
+      padding: 8px 12px !important;
+      font-size: 13px !important;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = links?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+</script>
