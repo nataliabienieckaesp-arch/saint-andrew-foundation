@@ -10,7 +10,7 @@ const years = [...new Set(posts.map(p => p.year))].sort((a, b) => b - a);
 
 <Layout>
   <!-- TOP BANNER -->
-  <div style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
+  <div class="top-banner" style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
     <span>Patron · British Embassy Warsaw</span>
     <span>KRS 0000557012 · Charity reg. since 2016</span>
   </div>
@@ -24,12 +24,12 @@ const years = [...new Set(posts.map(p => p.year))].sort((a, b) => b - a);
         <span>News</span>
         <div style="height: 1px; width: 194px; background: #c9a24a;"></div>
       </div>
-      <h1 style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Notes from the Foundation.</h1>
+      <h1 class="page-hero-title" style="font-family: 'Newsreader', serif; font-size: 64px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Notes from the Foundation.</h1>
       <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0;">Announcements, thank-yous and reports from a decade of ceilidhs, balls and Scottish days in Poland.</p>
     </div>
 
     <!-- Year index -->
-    <div style="width: 506px; border-top: 1px solid rgba(255,255,255,0.15);">
+    <div class="hero-side-box" style="width: 506px; border-top: 1px solid rgba(255,255,255,0.15);">
       {years.map(y => (
         <a href={`#year-${y}`} style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 20px 0; display: flex; justify-content: space-between; align-items: center; text-decoration: none;">
           <p style="font-family: 'Newsreader', serif; font-size: 32px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0;">{y}</p>
@@ -334,6 +334,116 @@ const years = [...new Set(posts.map(p => p.year))].sort((a, b) => b - a);
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .top-banner {
+      padding: 10px 32px !important;
+    }
+
+    /* Bridging fix for .page-hero — works regardless of its base definition */
+    .page-hero {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 40px !important;
+      padding: 64px 32px !important;
+    }
+
+    .hero-headline-col,
+    .hero-side-box {
+      width: 100% !important;
+      min-width: 0 !important;
+      flex: none !important;
+    }
+
+    .page-hero-title {
+      font-size: 44px !important;
+    }
+
+    .news-year {
+      padding: 40px 32px 0 32px;
+    }
+
+    .news-year__label {
+      font-size: 36px;
+    }
+
+    .news-card {
+      grid-template-columns: 240px 1fr;
+      gap: 28px;
+      height: 320px;
+      padding: 20px;
+    }
+
+    .news-card__sponsors {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .news-cta {
+      padding: 56px 32px;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  /* Phones */
+  @media (max-width: 640px) {
+    .top-banner {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 4px !important;
+      padding: 10px 20px !important;
+      font-size: 10px !important;
+    }
+
+    .page-hero {
+      padding: 48px 20px !important;
+    }
+
+    .page-hero-title {
+      font-size: 30px !important;
+    }
+
+    .news-year {
+      padding: 32px 20px 0 20px;
+      gap: 16px;
+    }
+
+    .news-year:last-of-type {
+      padding-bottom: 48px;
+    }
+
+    .news-year__label {
+      font-size: 28px;
+    }
+
+    /* Stack the card: photo on top, text below, height grows naturally */
+    .news-card {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      height: auto;
+      padding: 16px;
+    }
+
+    .news-card__photo {
+      height: 180px;
+    }
+
+    .news-card__title {
+      font-size: 24px;
+    }
+
+    .news-card__sponsors {
+      grid-template-columns: 1fr;
+    }
+
+    .news-cta {
+      padding: 40px 20px;
+    }
   }
 </style>
 
