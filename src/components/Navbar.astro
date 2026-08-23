@@ -14,12 +14,8 @@ const links = [
   { id: 'news', href: '/news', label: 'News' },
 ] as const;
 
-function linkStyle(id: string) {
-  const base = 'font-size: 16px; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; display: block;';
-  if (current === id) {
-    return `${base} color: #001535; background: #c8d9f2;`;
-  }
-  return `${base} color: #002b60;`;
+function linkClass(id: string) {
+  return current === id ? 'nav-link nav-link--current' : 'nav-link';
 }
 ---
 
@@ -40,7 +36,7 @@ function linkStyle(id: string) {
 
   <div class="nav-links" style="display: flex; gap: 4px; white-space: nowrap; flex-shrink: 0;">
     {links.map((link) => (
-      <a href={link.href} style={linkStyle(link.id)}>{link.label}</a>
+      <a href={link.href} class={linkClass(link.id)}>{link.label}</a>
     ))}
   </div>
   <div class="nav-right" style="display: flex; gap: 16px; align-items: center;">
@@ -48,7 +44,7 @@ function linkStyle(id: string) {
       <span style="background: #003f8a; color: white; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 500;">EN</span>
       <span style="color: #333; padding: 6px 10px; font-size: 12px; font-weight: 500;">PL</span>
     </div>
-    <a href="/#donate" style="background-color: #c8102e; color: white; padding: 8px 16px; border-radius: 999px; text-decoration: none; font-size: 14px; font-weight: 500;">Donate</a>
+    <a href="/#donate" class="btn btn--red btn--sm">Donate</a>
   </div>
 </nav>
 
@@ -73,6 +69,33 @@ function linkStyle(id: string) {
     width: 100%;
     background-color: #001a3d;
     border-radius: 2px;
+    transition: background-color 0.2s ease;
+  }
+
+  .nav-toggle:hover span {
+    background-color: #003f8a;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: block;
+    color: #002b60;
+    background: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    background: #c8d9f2;
+    color: #001535;
+  }
+
+  .nav-link--current {
+    color: #001535;
+    background: #c8d9f2;
   }
 
   @media (max-width: 900px) {

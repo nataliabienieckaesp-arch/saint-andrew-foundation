@@ -307,9 +307,13 @@ const years = [...new Set(posts.map(p => p.year))].sort((a, b) => b - a);
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   }
   .news-card__toggle:hover {
+    background: #002b60;
     border-color: #002b60;
+    color: white;
+    transform: translateY(-1px);
   }
   .news-card__toggle.is-hidden {
     display: none;

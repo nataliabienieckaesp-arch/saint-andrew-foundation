@@ -17,14 +17,13 @@ import { ArrowUpRight } from 'lucide-astro';
     <div style="display: flex; flex-direction: column; gap: 16px;">
     <form name="newsletter" method="POST" netlify netlify-honeypot="bot-field" action="/dziekujemy" class="footer-newsletter-form" style="display: flex; gap: 12px;">
   <input type="hidden" name="form-name" value="newsletter" />
-  <p style="display: none;"><label>Leave empty: <input name="bot-field" /></label></p>
-  <input type="email" name="email" required placeholder="your@email.com" style="flex: 1; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); border-radius: 999px; padding: 16px 24px; font-size: 16px; color: white; outline: none; font-family: inherit;" />
-  <button type="submit" style="background: #c9a24a; color: #001a3d; padding: 16px 32px; border-radius: 999px; border: none; font-size: 16px; font-weight: 500; cursor: pointer; white-space: nowrap; font-family: inherit;">Subscribe</button>
+  <p style="display: none !important;" aria-hidden="true"><label>Leave empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>  <input type="email" name="email" required placeholder="your@email.com" style="flex: 1; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); border-radius: 999px; padding: 16px 24px; font-size: 16px; color: white; outline: none; font-family: inherit;" />
+  <button type="submit" class="btn btn--gold btn--md">Subscribe</button>
 </form>
       <p style="font-size: 13px; color: rgba(255,255,255,0.5); margin: 0;">We never share your address. Unsubscribe any time.</p>
       <div class="footer-social" style="display: flex; gap: 16px; margin-top: 8px;">
-        <a href="https://www.facebook.com/standrewsfoundationpl" style="border: 1.5px solid rgba(255,255,255,0.3); color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px;">Facebook <ArrowUpRight size={15} /></a>
-        <a href="#" style="border: 1.5px solid rgba(255,255,255,0.3); color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 8px;">Instagram <ArrowUpRight size={15} /></a>
+        <a href="https://www.facebook.com/standrewsfoundationpl" class="btn btn--outline-ghost btn--md">Facebook <ArrowUpRight size={15} /></a>
+        <a href="#" class="btn btn--outline-ghost btn--md">Instagram <ArrowUpRight size={15} /></a>
       </div>
     </div>
   </div>

@@ -31,8 +31,8 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
         <p style="font-size: 18px; color: white; line-height: 1.4; max-width: 564px;">The St. Andrews Foundation is a Scottish charity in Poland dedicated to raising funds for children and young people facing illness and hardship, while celebrating Scotland's rich culture and strengthening the historic friendship between Scotland and Poland.</p>
       </div>
       <div class="hero-actions">
-        <a href="#donate" style="background-color: #c8102e; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500;">Donate now</a>
-        <a href="/events" style="border: 1.5px solid #f5f5f3; color: #f5f5f3; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px;">Buy Ceilidh tickets <ArrowUpRight size={18} /></a>
+        <a href="#donate" class="btn btn--red">Donate now</a>
+        <a href="/events" class="btn btn--outline-light">Buy Ceilidh tickets <ArrowUpRight size={18} /></a>
       </div>
     </div>
 
@@ -163,9 +163,8 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
           </div>
 
           <div class="ceilidh-buttons" style="display: flex; gap: 32px; align-items: center;">
-            <a href="/events" style="background: #003f8a; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px;
-			">Buy tickets <ArrowUpRight size={18} /></a>
-            <a href="/events" style="border: 1.5px solid #003f8a; color: #003f8a; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500;">Check all events</a>
+            <a href="/events" class="btn btn--blue">Buy tickets <ArrowUpRight size={18} /></a>
+            <a href="/events" class="btn btn--outline-blue">Check all events</a>
           </div>
         </div>
       </div>
@@ -203,7 +202,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
         <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
         <p style="font-size: 18px; color: white; line-height: 1.4; margin: 0;">Every złoty raised at the Ceilidh reaches a named cause. We work directly with our partner organisations — no administration fees, no deductions.</p>
       </div>
-      <a href="/charities" style="border: 1.5px solid white; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; white-space: nowrap; display: flex; align-items: center; gap: 8px; ">See all charities <ArrowUpRight size={18} /></a>
+      <a href="/charities" class="btn btn--outline-light">See all charities <ArrowUpRight size={18} /></a>
     </div>
 
     <!-- Charity Cards -->
@@ -235,7 +234,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
       <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #001a3d; text-transform: uppercase; letter-spacing: 0.04em;">Donate</span>
       <h2 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #001a3d; margin: 0; line-height: 1.15;">Powered by volunteers, driven by generosity so every donation goes further.</h2>
       <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0; max-width: 500px;">100% of donations reach our partner charities. No administration fees, no deductions — every złoty matters.</p>
-      <a href="#" style="background: #c8102e; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px;">Donate money securely</a>
+      <a href="#" class="btn btn--red">Donate money securely</a>
       <p style="font-size: 14px; color: #999; margin: 0;">No admin fees taken from donations · Secure payment — card, BLIK, or bank transfer · Reaches a named cause</p>
     </div>
   </section>
@@ -286,7 +285,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
 
     <div class="sponsor-cta-row" style="display: flex; gap: 48px; align-items: center; justify-content: right;">
       <p style="font-size: 16px; color: white; margin: 0;">Sponsorship from 25 000 zł / £5 000. Bilingual prospectus on request.</p>
-      <a href="/sponsors" style="background: #c8102e; color: white; padding: 16px 32px; border-radius: 999px; text-decoration: none; font-size: 18px; font-weight: 500;">Sponsor the 2026 Ceilidh</a>
+      <a href="/sponsors" class="btn btn--red">Sponsor the 2026 Ceilidh</a>
     </div>
   </section>
 
@@ -299,7 +298,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
         <div style="background: #c8102e; height: 4px; width: 80px;"></div>
         <p style="font-size: 18px; color: #333; line-height: 1.4; margin: 0;">All managers of the St. Andrews Foundation serve on a voluntary basis and receive no remuneration or benefits in kind.</p>
       </div>
-      <a href="/about" style="border: 1.5px solid #333; color: #333; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 16px; font-weight: 500; white-space: nowrap; display: flex; align-items: center; gap: 8px; ">Meet the full board <ArrowUpRight size={18} /></a>
+      <a href="/about" class="btn btn--outline-dark btn--md">Meet the full board <ArrowUpRight size={18} /></a>
     </div>
 
     <div class="board-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
@@ -315,7 +314,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
         </div>
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">Foundation Vice-President</span>
         <h3 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #333; margin: 0; line-height: 1.2;">Iain Leyden</h3>
-        <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">Originally from Airdrie in North Lanarkshire, Iain was seconded to Poland in 2002. With the assistance of Martyn, Iain surprised Alex with a marriage proposal at the 2005 Caledonian Ball. Alex thought she had a winning Lottery Ticket but instead she got Iain! In 2015, Iain helped to set up the St Andrew's Foundation which raises donations to help worthwhile causes and has been organizing the annual charity ball which we all know and love.</p>
+        <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">Originally from Airdrie in North Lanarkshire, Iain was seconded to Poland in 2002. With the assistance of Martyn, Iain surprised Alex with a marriage proposal at the 2005 Caledonian Ball. Alex thought she had a winning Lottery Ticket but instead she got Iain! In 2015, Iain helped to set up the St. Andrews Foundation which raises donations to help worthwhile causes and has been organizing the annual charity ball which we all know and love.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 19px;">
 	  <img src="/images/ProfileDavid.jpg" alt="David Kennedy" style="border-radius: 16px; height: 352px; width: 100%; object-fit: cover; object-position: center 70%;" />
