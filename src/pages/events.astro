@@ -33,7 +33,7 @@ import { ArrowUpRight } from 'lucide-astro';
       </div>
       <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; display: flex; justify-content: space-between; align-items: center;">
         <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: white; margin: 0;">Burns Night Warsaw</p>
-        <p style="font-size: 16px; color: #c9a24a; margin: 0;">January 2026</p>
+        <p style="font-size: 16px; color: #c9a24a; margin: 0;">January 2027</p>
       </div>
       <div style="padding: 24px 0; display: flex; justify-content: space-between; align-items: center;">
         <p style="font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: white; margin: 0;">Scottish Day Jadów</p>
@@ -43,7 +43,7 @@ import { ArrowUpRight } from 'lucide-astro';
   </section>
 
   <!-- CEILIDH SECTION -->
-  <section class="section-pad" style="padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
+  <section id="ceilidh" class="section-pad" style="padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
     <div style="display: flex; flex-direction: column; gap: 16px;">
       <div style="display: flex; gap: 12px; align-items: center;">
         <div style="background: #c8102e; height: 1px; width: 28px;"></div>
@@ -125,92 +125,9 @@ import { ArrowUpRight } from 'lucide-astro';
       <img src="/images/St_Andrews_Foundation_0046.jpg" alt="St_Andrews_Foundation_0047.jpg" style="width: 100%; height: 100%; object-fit: cover;" />
     </div>
   </section>
-<!-- PAST EDITIONS -->
-  <section class="section-pad" style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; flex-direction: column; gap: 16px;">
-      <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Past editions</span>
-      <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Nine editions, one cause.</h2>
-      <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
-    </div>
-
-    <!-- Editions — uneven rows: 2 / 3 / 2 -->
-    <div style="display: flex; flex-direction: column;">
-
-      <!-- Row 1 -->
-      <div class="edition-row" style="display: flex; border-top: 1px solid #999;">
-        <div class="edition-cell" style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2024</p>
-          <div style="display: flex; flex-direction: column; gap: 4px;">
-            <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Charity Ceilidh</p>
-            <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6;">First edition under new name</p>
-          </div>
-        </div>
-        <div class="edition-cell" style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2023</p>
-          <div style="display: flex; flex-direction: column; gap: 4px;">
-            <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
-            <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6;">Reduta Banku Polskiego</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="edition-row" style="display: flex;">
-        <div class="edition-cell" style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2022</p>
-          <div style="display: flex; flex-direction: column; gap: 4px;">
-            <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
-            <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6;">Return after pandemic</p>
-          </div>
-        </div>
-        <div class="edition-cell" style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2019</p>
-          <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
-        </div>
-        <div class="edition-cell" style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2018</p>
-          <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
-        </div>
-      </div>
-
-      <!-- Row 3 -->
-      <div class="edition-row" style="display: flex;">
-        <div class="edition-cell" style="flex: 1; border-right: 1px solid #999; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2018</p>
-          <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Caledonian Ball</p>
-        </div>
-        <div class="edition-cell" style="flex: 1; border-bottom: 1px solid #999; padding: 24px; display: flex; gap: 36px; align-items: center; justify-content: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0; letter-spacing: -0.005em;">2016</p>
-          <div style="display: flex; flex-direction: column; gap: 4px;">
-            <p style="font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: white; margin: 0; line-height: 1.3;">Inaugural event</p>
-            <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin: 0; line-height: 1.6;">Foundation registered</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Photo bento -->
-    <div class="photo-bento" style="display: flex; gap: 16px; height: 561px;">
-      <div class="bento-col" style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
-        <img src="/images/St_Andrews_Foundation_0044.jpg" alt="Ceilidh" style="width: 100%; height: 100%; object-fit: cover;" />
-      </div>
-      <div class="bento-col" style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
-        <div style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
-          <img src="/images/St_Andrews_Foundation_0105.jpg" alt="Ceilidh" style="width: 100%; height: 100%; object-fit: cover;" />
-        </div>
-        <div style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
-          <img src="/images/St_Andrews_Foundation_0070.jpg" alt="Ceilidh" style="width: 100%; height: 100%; object-fit: cover;" />
-        </div>
-      </div>
-      <div class="bento-col" style="flex: 1; border-radius: 16px; overflow: hidden; background: #001535;">
-        <img src="/images/St_Andrews_Foundation_0047.jpg" alt="Ceilidh" style="width: 100%; height: 100%; object-fit: cover;" />
-      </div>
-    </div>
-  </section>
 
   <!-- BURNS NIGHT -->
-  <section class="section-pad two-col-section" style="padding: 64px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+  <section id="burns" class="section-pad two-col-section" style="padding: 64px 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
     <div style="display: flex; flex-direction: column; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <div style="display: flex; gap: 12px; align-items: center;">
@@ -221,7 +138,7 @@ import { ArrowUpRight } from 'lucide-astro';
         <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
       </div>
 
-      <p style="font-size: 16px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0; max-width: 560px;">An evening celebrating Scotland's national poet, Robert Burns — held annually in Warsaw each January around Burns Night (25 January). This is another great event for everyone and is also an ideal occasion for corporate hosting given its more sedate tempo and affording quiet conversation. Of course, we will aim to raise more donations for the causes we support. During this unique yet global phenomenon, you can experience: The Address to a Haggis, the Immortal Memory, a Selkirk Grace, Scottish Piping and song plus a few drams of Scotland's prime export! Open to all who love Scotland, or who would like to. Date and venue for 2026 to be confirmed — register your interest below and we will be in touch.</p>
+      <p style="font-size: 16px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0; max-width: 560px;">An evening celebrating Scotland's national poet, Robert Burns — held annually in Warsaw each January around Burns Night (25 January). This is another great event for everyone and is also an ideal occasion for corporate hosting given its more sedate tempo and affording quiet conversation. Of course, we will aim to raise more donations for the causes we support. During this unique yet global phenomenon, you can experience: The Address to a Haggis, the Immortal Memory, a Selkirk Grace, Scottish Piping and song plus a few drams of Scotland's prime export! Open to all who love Scotland, or who would like to. Date and venue for 2027 to be confirmed — register your interest below and we will be in touch.</p>
 
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <div style="display: flex; flex-direction: column; gap: 8px;">
@@ -336,10 +253,6 @@ import { ArrowUpRight } from 'lucide-astro';
       height: 360px !important;
     }
 
-    .photo-bento {
-      height: 420px !important;
-    }
-
     .two-col-section {
       grid-template-columns: 1fr !important;
       gap: 32px !important;
@@ -388,24 +301,6 @@ import { ArrowUpRight } from 'lucide-astro';
     }
 
     .feature-photo {
-      height: 220px !important;
-    }
-
-    .edition-row {
-      flex-direction: column !important;
-    }
-
-    .edition-cell {
-      border-right: none !important;
-    }
-
-    .photo-bento {
-      flex-direction: column !important;
-      height: auto !important;
-      gap: 12px !important;
-    }
-
-    .bento-col {
       height: 220px !important;
     }
 

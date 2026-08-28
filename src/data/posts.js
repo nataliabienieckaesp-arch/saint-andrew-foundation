@@ -17,7 +17,6 @@ export const posts = [
       { type: 'h2', text: 'Our deepest gratitude' },
       { type: 'p', text: 'We are profoundly grateful for the support our sponsors have shown. Their contributions have been instrumental in advancing the Foundation\u2019s work.' },
       { type: 'p', text: 'Your commitment to this cause is what allows us to keep going, and to bring some hope to those who need it most.' },
-      { type: 'quote', text: 'Every zloty raised at the Ceilidh reaches a partner charity. The Foundation takes nothing.' },
       { type: 'h2', text: 'Our esteemed sponsors' },
       { type: 'p', text: 'With thanks to each of the following for their support of the 2024 edition.' },
     ],
