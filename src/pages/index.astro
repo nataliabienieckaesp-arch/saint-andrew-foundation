@@ -32,7 +32,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
       </div>
       <div class="hero-actions">
         <a href="#donate" class="btn btn--red">Donate now</a>
-        <a href="/events" class="btn btn--outline-light">Donate and join the event <ArrowUpRight size={18} /></a>
+        <a href="/events#reserve" class="btn btn--outline-light">Reserve your place <ArrowUpRight size={18} /></a>
       </div>
     </div>
 
@@ -163,7 +163,7 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
           </div>
 
           <div class="ceilidh-buttons" style="display: flex; gap: 32px; align-items: center;">
-            <a href="/events" class="btn btn--blue">Donate and join the event <ArrowUpRight size={18} /></a>
+            <a href="/events#reserve" class="btn btn--blue">Reserve your place <ArrowUpRight size={18} /></a>
             <a href="/events" class="btn btn--outline-blue">Check all events</a>
           </div>
         </div>
@@ -231,29 +231,89 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
     <!-- Donate Card -->
     <div id="donate" class="donate-card" style="background: white; border: 1px solid #e0ded8; border-radius: 16px; padding: 48px 56px; max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; box-shadow: 0 4px 24px rgba(14,14,28,0.06);">
       <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #001a3d; text-transform: uppercase; letter-spacing: 0.04em;">Donate</span>
-      <h2 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #001a3d; margin: 0; line-height: 1.15;">Powered by volunteers, driven by generosity so every donation goes further.</h2>
+      <h2 style="font-family: 'Newsreader', serif; font-size: 36px; font-weight: 600; color: #001a3d; margin: 0; line-height: 1.15;">Would you simply like to support our work?</h2>
+      <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">You do not need to attend the Ceilidh to support the St. Andrews Foundation. If you would like to make a donation independently of the November event, you can donate directly to the Foundation's account.</p>
       <div class="donate-details" style="background: #f4f0e8; border-radius: 12px; padding: 28px 32px; width: 100%; box-sizing: border-box; text-align: left;">
         <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #8c0b20; text-transform: uppercase; letter-spacing: 0.04em;">Bank transfer</span>
         <dl style="margin: 16px 0 0; display: flex; flex-direction: column; gap: 14px;">
           <div>
             <dt style="font-size: 12px; color: #5a5a5a; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">Account name</dt>
-            <dd style="margin: 0; font-size: 16px; color: #001a3d;">NAZWA_Z_KRS</dd>
+            <dd style="margin: 0; font-size: 16px; color: #001a3d;">St. Andrews Foundation</dd>
           </div>
           <div>
-            <dt style="font-size: 12px; color: #5a5a5a; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">IBAN</dt>
-            <dd style="margin: 0; font-size: 16px; color: #001a3d; font-family: 'Courier New', monospace; word-break: break-all;">IBAN_TUTAJ</dd>
+            <dt style="font-size: 12px; color: #5a5a5a; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">Bank</dt>
+            <dd style="margin: 0; font-size: 16px; color: #001a3d;">PKO Bank Polski</dd>
+          </div>
+          <div>
+            <dt style="font-size: 12px; color: #5a5a5a; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">Account number</dt>
+            <dd class="donate-account" style="margin: 0; font-size: 16px; color: #001a3d; display: flex; align-items: center; gap: 8px;">
+              <span>75 1020 1169 0000 8202 0940 2977</span>
+              <button type="button" class="donate-copy" data-copy="75 1020 1169 0000 8202 0940 2977" aria-label="Copy account number" title="Copy" style="display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 32px; height: 32px; margin: 0; padding: 0; border: none; border-radius: 6px; background: transparent; cursor: pointer; color: #001a3d;">
+                <span class="donate-copy-icon" aria-hidden="true" style="position: relative; display: block; width: 14px; height: 14px;">
+                  <span style="position: absolute; right: 0; top: 0; width: 9px; height: 9px; border: 1.5px solid #001a3d; border-radius: 2px; box-sizing: border-box;"></span>
+                  <span style="position: absolute; left: 0; bottom: 0; width: 9px; height: 9px; border: 1.5px solid #001a3d; border-radius: 2px; box-sizing: border-box; background: #f4f0e8;"></span>
+                </span>
+                <span class="donate-copy-done" aria-hidden="true" style="display: none; width: 12px; height: 7px; border-left: 2px solid #001a3d; border-bottom: 2px solid #001a3d; transform: rotate(-45deg); margin-bottom: 3px;"></span>
+              </button>
+            </dd>
           </div>
           <div>
             <dt style="font-size: 12px; color: #5a5a5a; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">SWIFT / BIC</dt>
-            <dd style="margin: 0; font-size: 16px; color: #001a3d; font-family: 'Courier New', monospace;">SWIFT_TUTAJ</dd>
+            <dd style="margin: 0; font-size: 16px; color: #001a3d; display: flex; align-items: center; gap: 8px;">
+              <span>BPKOPLPW</span>
+              <button type="button" class="donate-copy" data-copy="BPKOPLPW" aria-label="Copy SWIFT / BIC" title="Copy" style="display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 32px; height: 32px; margin: 0; padding: 0; border: none; border-radius: 6px; background: transparent; cursor: pointer; color: #001a3d;">
+                <span class="donate-copy-icon" aria-hidden="true" style="position: relative; display: block; width: 14px; height: 14px;">
+                  <span style="position: absolute; right: 0; top: 0; width: 9px; height: 9px; border: 1.5px solid #001a3d; border-radius: 2px; box-sizing: border-box;"></span>
+                  <span style="position: absolute; left: 0; bottom: 0; width: 9px; height: 9px; border: 1.5px solid #001a3d; border-radius: 2px; box-sizing: border-box; background: #f4f0e8;"></span>
+                </span>
+                <span class="donate-copy-done" aria-hidden="true" style="display: none; width: 12px; height: 7px; border-left: 2px solid #001a3d; border-bottom: 2px solid #001a3d; transform: rotate(-45deg); margin-bottom: 3px;"></span>
+              </button>
+            </dd>
           </div>
           <div>
             <dt style="font-size: 12px; color: #5a5a5a; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">Reference</dt>
-            <dd style="margin: 0; font-size: 16px; color: #001a3d;">Darowizna</dd>
+            <dd style="margin: 0; font-size: 16px; color: #001a3d;">Darowizna na cele statutowe<span style="display: block; font-size: 14px; color: #5a5a5a; margin-top: 4px;">Donation for statutory purposes</span></dd>
           </div>
         </dl>
-      </div>    </div>
+      </div>
+      <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">Every donation helps us continue supporting children and young people in Poland who need it most. Thank you for your generosity.</p>
+    </div>
   </section>
+
+  <script is:inline>
+    document.querySelectorAll('.donate-copy').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const value = button.getAttribute('data-copy');
+        if (!value) return;
+
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch {
+          const input = document.createElement('textarea');
+          input.value = value;
+          input.setAttribute('readonly', '');
+          input.style.position = 'absolute';
+          input.style.left = '-9999px';
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+        }
+
+        const copyIcon = button.querySelector('.donate-copy-icon');
+        const doneIcon = button.querySelector('.donate-copy-done');
+        if (copyIcon) copyIcon.style.display = 'none';
+        if (doneIcon) doneIcon.style.display = 'block';
+        const label = button.getAttribute('aria-label');
+        button.setAttribute('aria-label', 'Copied');
+        window.setTimeout(() => {
+          if (copyIcon) copyIcon.style.display = 'block';
+          if (doneIcon) doneIcon.style.display = 'none';
+          if (label) button.setAttribute('aria-label', label);
+        }, 2000);
+      });
+    });
+  </script>
 
 <!-- SPONSORS SECTION -->
   <section class="section-pad" style="background-color: #001a3d; padding: 64px 96px; display: flex; flex-direction: column; gap: 48px;">
@@ -450,6 +510,30 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
     backdrop-filter: blur(4px);
   }
 
+  .donate-copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: #001a3d;
+    cursor: pointer;
+  }
+
+  .donate-copy:hover {
+    background: rgba(0, 26, 61, 0.08);
+  }
+
+  .donate-copy:focus-visible {
+    outline: 2px solid #001a3d;
+    outline-offset: 2px;
+  }
+
   /* ============ RESPONSIVE ============ */
 
   /* Tablet */
@@ -529,6 +613,8 @@ import { ArrowUpRight, ChevronRight, Heart } from 'lucide-astro';
   @media (max-width: 640px) {
         .donate-card { padding: 32px 20px !important; }
     .donate-details { padding: 20px 18px !important; }
+    .donate-account { font-size: 14px !important; }
+        .donate-copy { width: 44px !important; height: 44px !important; }
     .top-banner {
       flex-direction: column !important;
       align-items: flex-start !important;
