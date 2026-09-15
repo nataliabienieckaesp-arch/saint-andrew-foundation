@@ -1,13 +1,110 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-import { ArrowUpRight, Mail } from 'lucide-astro';
+import { ArrowUpRight, ChevronLeft, ChevronRight, Mail, X } from 'lucide-astro';
 
-const galleries = [
-  { title: 'Charity Ceilidh 2025 - Warsaw', count: 84, year: '2025', img: '/images/ceilidh.jpg', size: 'large' },
-  { title: 'Charity Ceilidh 2024 - Warsaw', count: 63, year: '2024', img: '/images/ceilidh.jpg', size: 'small' },
+const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i;
+
+function readImageSize(filePath) {
+  const buf = fs.readFileSync(filePath);
+  if (buf.length >= 24 && buf[0] === 0x89 && buf[1] === 0x50) {
+    return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+  }
+  if (buf[0] === 0xff && buf[1] === 0xd8) {
+    let offset = 2;
+    while (offset + 8 < buf.length) {
+      if (buf[offset] !== 0xff) break;
+      const marker = buf[offset + 1];
+      if (marker === 0xd8 || marker === 0xd9 || (marker >= 0xd0 && marker <= 0xd7)) {
+        offset += 2;
+        continue;
+      }
+      const segmentSize = buf.readUInt16BE(offset + 2);
+      if (
+        (marker >= 0xc0 && marker <= 0xc3) ||
+        (marker >= 0xc5 && marker <= 0xc7) ||
+        (marker >= 0xc9 && marker <= 0xcb) ||
+        (marker >= 0xcd && marker <= 0xcf)
+      ) {
+        return {
+          height: buf.readUInt16BE(offset + 5),
+          width: buf.readUInt16BE(offset + 7),
+        };
+      }
+      if (segmentSize < 2) break;
+      offset += 2 + segmentSize;
+    }
+  }
+  return { width: 1600, height: 1200 };
+}
+
+function loadAlbum(folder) {
+  const abs = path.join(process.cwd(), 'public', 'images', folder);
+  return fs
+    .readdirSync(abs)
+    .filter((name) => IMAGE_EXT.test(name) && fs.statSync(path.join(abs, name)).isFile())
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+    .map((name) => {
+      const { width, height } = readImageSize(path.join(abs, name));
+      return {
+        src: `/images/${folder}/${encodeURIComponent(name)}`,
+        width,
+        height,
+      };
+    });
+}
+
+const lordSpeakerPhotos = loadAlbum('lord-speaker-visit-2024');
+const ceilidh2024Photos = loadAlbum('ceilidh-2024');
+const ceilidh2025Photos = loadAlbum('ceilidh-2025');
+
+const albums = [
+  {
+    id: 'lord-speaker',
+    kicker: 'Official visit · 2024',
+    title: 'Visit of the Lord Speaker of the House of Lords',
+    intro: 'Photographs from a 2024 diplomatic visit, shown separately from the Foundation’s charity events.',
+    alt: 'Photograph from the Visit of the Lord Speaker of the House of Lords',
+    photos: lordSpeakerPhotos,
+    featured: true,
+    coverFile: '8.jpeg',
+  },
+  {
+    id: 'ceilidh-2025',
+    kicker: 'Charity Ceilidh',
+    title: '2025 event highlights',
+    intro: '',
+    alt: 'Photograph from the 2025 event',
+    photos: ceilidh2025Photos,
+    featured: false,
+  },
+  {
+    id: 'ceilidh-2024',
+    kicker: 'Charity Ceilidh',
+    title: '2024 event highlights',
+    intro: '',
+    alt: 'Photograph from the 2024 event',
+    photos: ceilidh2024Photos,
+    featured: false,
+  },
 ];
+
+function albumCover(album) {
+  if (album.coverFile) {
+    const match = album.photos.find((photo) =>
+      decodeURIComponent(photo.src.split('/').pop() || '') === album.coverFile
+    );
+    if (match) return match;
+  }
+  return album.photos[0];
+}
+
+const featuredAlbum = albums.find((album) => album.featured);
+const eventAlbums = albums.filter((album) => !album.featured);
+const featuredCover = featuredAlbum && albumCover(featuredAlbum);
 ---
 
 <Layout>
@@ -31,7 +128,39 @@ const galleries = [
     </div>
   </section>
 
-  <!-- BENTO GALLERY GRID -->
+  <!-- OFFICIAL VISIT ALBUM -->
+  <section class="section-pad" style="padding: 80px 96px; display: flex; flex-direction: column; gap: 24px;">
+    {featuredAlbum && featuredCover && (
+      <button
+        type="button"
+        class="album-card album-card--featured"
+        data-open-album={featuredAlbum.id}
+        aria-haspopup="dialog"
+        aria-controls="album-viewer"
+        aria-label={`Open album: ${featuredAlbum.title}`}
+      >
+        <img
+          src={featuredCover.src}
+          alt=""
+          width={featuredCover.width}
+          height={featuredCover.height}
+          loading="eager"
+          decoding="async"
+        />
+        <div class="album-card-overlay">
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <div style="background: #c9a24a; height: 1px; width: 28px;"></div>
+            <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">{featuredAlbum.kicker} · {featuredAlbum.photos.length} photographs</span>
+          </div>
+          <span class="album-card-title" style="font-family: 'Newsreader', serif; font-size: 40px; font-weight: 700; color: white; letter-spacing: -0.01em;">{featuredAlbum.title}</span>
+          <p style="font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0; max-width: 640px;">{featuredAlbum.intro}</p>
+          <span class="album-card-cta">Open album <ArrowUpRight size={18} /></span>
+        </div>
+      </button>
+    )}
+  </section>
+
+  <!-- EVENT PHOTO ALBUMS -->
   <section class="section-pad" style="padding: 80px 96px; display: flex; flex-direction: column; gap: 48px;">
     <div class="galleries-header-row" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px;">
       <div style="display: flex; flex-direction: column; gap: 16px;">
@@ -45,68 +174,33 @@ const galleries = [
       <p style="font-size: 16px; color: rgba(0,43,96,0.7); line-height: 1.6; margin: 0; max-width: 400px;">All photography by our volunteer photographers. Free to use with credit for press and partners.</p>
     </div>
 
-    <!-- Bento grid -->
-    <div class="bento-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; gap: 16px;">
-
-      <!-- Large — Ceilidh 2025 -->
-      <a href="#" class="bento-tile" style="grid-column: span 2; grid-row: span 2; border-radius: 16px; overflow: hidden; position: relative; text-decoration: none; background: #001535;">
-        <img src="/images/ceilidh.jpg" alt="Charity Ceilidh 2025" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,21,53,0.9) 0%, rgba(0,21,53,0) 55%);"></div>
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 32px; display: flex; flex-direction: column; gap: 8px;">
-          <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">2025 · 84 photos</span>
-          <h3 style="font-family: 'Newsreader', serif; font-size: 32px; font-weight: 600; color: white; margin: 0;">Charity Ceilidh 2025 - Warsaw</h3>
-          <span style="font-size: 14px; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 6px;">View gallery <ArrowUpRight size={14} /></span>
-        </div>
-      </a>
-
-      <!-- Small — Burns Night 2025 -->
-      <a href="#" class="bento-tile" style="grid-column: span 2; border-radius: 16px; overflow: hidden; position: relative; text-decoration: none; background: #001535;">
-        <img src="/images/ceilidh.jpg" alt="Burns Night 2025" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,21,53,0.9) 0%, rgba(0,21,53,0) 65%);"></div>
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; display: flex; flex-direction: column; gap: 6px;">
-          <span style="font-family: 'Courier New', monospace; font-size: 11px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">2025 · 32 photos</span>
-          <h3 style="font-family: 'Newsreader', serif; font-size: 24px; font-weight: 600; color: white; margin: 0;">Burns Night 2025</h3>
-        </div>
-      </a>
-
-      <!-- Small — Jadów -->
-      <a href="#" class="bento-tile" style="border-radius: 16px; overflow: hidden; position: relative; text-decoration: none; background: #001535;">
-        <img src="/images/ceilidh.jpg" alt="Scottish Day Jadów" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,21,53,0.9) 0%, rgba(0,21,53,0) 70%);"></div>
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; display: flex; flex-direction: column; gap: 4px;">
-          <span style="font-family: 'Courier New', monospace; font-size: 11px; color: #c9a24a; text-transform: uppercase;">2025 · 56</span>
-          <h3 style="font-family: 'Newsreader', serif; font-size: 20px; font-weight: 600; color: white; margin: 0; line-height: 1.2;">Scottish Day Jadów</h3>
-        </div>
-      </a>
-
-      <!-- Small — Ceilidh 2024 -->
-      <a href="#" class="bento-tile" style="border-radius: 16px; overflow: hidden; position: relative; text-decoration: none; background: #001535;">
-        <img src="/images/ceilidh.jpg" alt="Charity Ceilidh 2024" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,21,53,0.9) 0%, rgba(0,21,53,0) 70%);"></div>
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; display: flex; flex-direction: column; gap: 4px;">
-          <span style="font-family: 'Courier New', monospace; font-size: 11px; color: #c9a24a; text-transform: uppercase;">2024 · 63</span>
-          <h3 style="font-family: 'Newsreader', serif; font-size: 20px; font-weight: 600; color: white; margin: 0; line-height: 1.2;">Charity Ceilidh 2024 - Warsaw</h3>
-        </div>
-      </a>
-
-      <!-- Wide — Caledonian Ball 2023 -->
-      <a href="#" class="bento-tile" style="grid-column: span 3; border-radius: 16px; overflow: hidden; position: relative; text-decoration: none; background: #001535;">
-        <img src="/images/ceilidh.jpg" alt="Caledonian Ball 2023" style="width: 100%; height: 100%; object-fit: cover;" />
-        <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,21,53,0.9) 0%, rgba(0,21,53,0) 70%);"></div>
-        <div style="position: absolute; bottom: 0; left: 0; padding: 32px; display: flex; flex-direction: column; gap: 6px;">
-          <span style="font-family: 'Courier New', monospace; font-size: 11px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">2023 · 71 photos</span>
-          <h3 style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: white; margin: 0;">Caledonian Ball 2023</h3>
-          <span style="font-size: 14px; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 6px;">View gallery <ArrowUpRight size={14} /></span>
-        </div>
-      </a>
-
-      <!-- Archive card -->
-      <a href="#" class="bento-tile" style="border: 1px solid #e0ded8; border-radius: 16px; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; padding: 24px;">
-        <span style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: rgba(0,43,96,0.15); line-height: 1;">+</span>
-        <h3 style="font-family: 'Newsreader', serif; font-size: 20px; font-weight: 600; color: #002b60; margin: 0;">Full archive</h3>
-        <p style="font-size: 13px; color: rgba(0,43,96,0.6); margin: 0; line-height: 1.5;">2016–2022 galleries</p>
-      </a>
-
+    <div class="album-card-grid">
+      {eventAlbums.map((album) => (
+        album.photos[0] && (
+          <button
+            type="button"
+            class="album-card"
+            data-open-album={album.id}
+            aria-haspopup="dialog"
+            aria-controls="album-viewer"
+            aria-label={`Open album: ${album.title}`}
+          >
+            <img
+              src={album.photos[0].src}
+              alt=""
+              width={album.photos[0].width}
+              height={album.photos[0].height}
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="album-card-overlay">
+              <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">{album.kicker} · {album.photos.length} photographs</span>
+              <span class="album-card-title" style="font-family: 'Newsreader', serif; font-size: 32px; font-weight: 600; color: white; letter-spacing: -0.01em;">{album.title}</span>
+              <span class="album-card-cta">Open album <ArrowUpRight size={16} /></span>
+            </div>
+          </button>
+        )
+      ))}
     </div>
   </section>
 
@@ -206,6 +300,63 @@ const galleries = [
     </div>
   </section>
 
+  <dialog class="album-viewer" id="album-viewer" aria-labelledby="album-viewer-title">
+    <div class="album-viewer-chrome">
+      <div class="album-viewer-heading">
+        <p id="album-viewer-kicker" class="album-viewer-kicker"></p>
+        <h2 id="album-viewer-title" class="album-viewer-title"></h2>
+      </div>
+      <button type="button" class="album-viewer-close" aria-label="Close album">
+        <X size={20} />
+      </button>
+    </div>
+
+    <div class="album-viewer-body">
+      {albums.map((album) => (
+        <div
+          class:list={['album-grid', album.featured && 'album-grid--official']}
+          data-album-panel={album.id}
+          hidden
+        >
+          {album.photos.map((photo, index) => (
+            <button
+              type="button"
+              class="album-thumb"
+              data-lightbox-src={photo.src}
+              data-lightbox-alt={album.alt}
+              data-lightbox-album={album.id}
+              data-lightbox-index={String(index)}
+              aria-label={`View photograph ${index + 1} of ${album.photos.length} from ${album.title}`}
+            >
+              <img
+                src={photo.src}
+                alt={album.alt}
+                width={photo.width}
+                height={photo.height}
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <div class="photo-stage" id="photo-stage" hidden>
+      <button type="button" class="lightbox-close" data-close-photo aria-label="Back to album">
+        <X size={20} />
+      </button>
+      <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photograph">
+        <ChevronLeft size={28} />
+      </button>
+      <img class="lightbox-image" alt="" />
+      <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photograph">
+        <ChevronRight size={28} />
+      </button>
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </dialog>
+
   <Footer />
 
   <script>
@@ -223,9 +374,474 @@ const galleries = [
     updateMediaCountdown();
     setInterval(updateMediaCountdown, 1000);
   </script>
+
+  <script>
+    const viewer = document.getElementById('album-viewer');
+    const kickerEl = document.getElementById('album-viewer-kicker');
+    const titleEl = document.getElementById('album-viewer-title');
+    const closeAlbumBtn = viewer.querySelector('.album-viewer-close');
+    const photoStage = document.getElementById('photo-stage');
+    const lightboxImage = photoStage.querySelector('.lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closePhotoBtn = photoStage.querySelector('[data-close-photo]');
+    const prevBtn = photoStage.querySelector('.lightbox-prev');
+    const nextBtn = photoStage.querySelector('.lightbox-next');
+    const panels = () => [...viewer.querySelectorAll('[data-album-panel]')];
+    const albumCards = [...document.querySelectorAll('[data-open-album]')];
+
+    let lastCard = null;
+    let lastThumb = null;
+    let currentAlbum = '';
+    let currentIndex = 0;
+    let photoOpen = false;
+
+    function albumThumbs(album) {
+      const panel = viewer.querySelector(`[data-album-panel="${album}"]`);
+      return panel ? [...panel.querySelectorAll('.album-thumb')] : [];
+    }
+
+    function photoFocusable() {
+      return [closePhotoBtn, prevBtn, nextBtn];
+    }
+
+    function showPanel(album) {
+      panels().forEach((panel) => {
+        panel.hidden = panel.dataset.albumPanel !== album;
+      });
+    }
+
+    function openAlbum(card) {
+      lastCard = card;
+      currentAlbum = card.dataset.openAlbum;
+      const thumbs = albumThumbs(currentAlbum);
+      kickerEl.textContent = `${thumbs.length} photographs`;
+      titleEl.textContent = card.querySelector('.album-card-title')?.textContent || 'Album';
+      showPanel(currentAlbum);
+      hidePhoto();
+      if (typeof viewer.showModal === 'function') viewer.showModal();
+      else viewer.setAttribute('open', '');
+      closeAlbumBtn.focus();
+      const body = viewer.querySelector('.album-viewer-body');
+      if (body) body.scrollTop = 0;
+    }
+
+    function closeAlbum() {
+      hidePhoto();
+      if (typeof viewer.close === 'function' && viewer.open) viewer.close();
+      else viewer.removeAttribute('open');
+    }
+
+    function showPhoto(index) {
+      const items = albumThumbs(currentAlbum);
+      if (!items.length) return;
+      currentIndex = (index + items.length) % items.length;
+      const btn = items[currentIndex];
+      lastThumb = btn;
+      lightboxImage.alt = btn.dataset.lightboxAlt || '';
+      lightboxImage.src = btn.dataset.lightboxSrc;
+      lightboxCaption.textContent = `${currentIndex + 1} of ${items.length}`;
+      photoStage.hidden = false;
+      photoOpen = true;
+      closePhotoBtn.focus();
+    }
+
+    function hidePhoto() {
+      photoStage.hidden = true;
+      photoOpen = false;
+      lightboxImage.removeAttribute('src');
+    }
+
+    albumCards.forEach((card) => {
+      card.addEventListener('click', () => openAlbum(card));
+    });
+
+    viewer.addEventListener('click', (event) => {
+      const thumb = event.target.closest('.album-thumb');
+      if (thumb && viewer.contains(thumb) && !photoOpen) {
+        showPhoto(Number(thumb.dataset.lightboxIndex));
+        return;
+      }
+      if (event.target === viewer && !photoOpen) closeAlbum();
+    });
+
+    closeAlbumBtn.addEventListener('click', closeAlbum);
+    closePhotoBtn.addEventListener('click', () => {
+      hidePhoto();
+      lastThumb?.focus();
+    });
+    prevBtn.addEventListener('click', () => showPhoto(currentIndex - 1));
+    nextBtn.addEventListener('click', () => showPhoto(currentIndex + 1));
+
+    photoStage.addEventListener('click', (event) => {
+      if (event.target === photoStage) {
+        hidePhoto();
+        lastThumb?.focus();
+      }
+    });
+
+    viewer.addEventListener('cancel', (event) => {
+      if (photoOpen) {
+        event.preventDefault();
+        hidePhoto();
+        lastThumb?.focus();
+      }
+    });
+
+    viewer.addEventListener('close', () => {
+      hidePhoto();
+      lastCard?.focus();
+    });
+
+    viewer.addEventListener('keydown', (event) => {
+      if (!viewer.open) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        if (photoOpen) {
+          hidePhoto();
+          lastThumb?.focus();
+        } else {
+          closeAlbum();
+        }
+        return;
+      }
+      if (!photoOpen) return;
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showPhoto(currentIndex - 1);
+        return;
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        showPhoto(currentIndex + 1);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const nodes = photoFocusable();
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    let swipeX = null;
+    lightboxImage.addEventListener('touchstart', (event) => {
+      swipeX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    lightboxImage.addEventListener('touchend', (event) => {
+      if (!photoOpen || swipeX == null) return;
+      const delta = event.changedTouches[0].clientX - swipeX;
+      swipeX = null;
+      if (Math.abs(delta) < 40) return;
+      showPhoto(currentIndex + (delta < 0 ? 1 : -1));
+    });
+  </script>
 </Layout>
 
 <style>
+  .album-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .album-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 360px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #001535;
+    cursor: pointer;
+    text-align: left;
+    color: white;
+  }
+
+  .album-card--featured {
+    min-height: 480px;
+  }
+
+  .album-card img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.48);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .album-card:hover img {
+    transform: scale(1.03);
+    filter: brightness(0.42);
+  }
+
+  .album-card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 32px;
+    background: linear-gradient(to top, rgba(0, 26, 61, 0.88) 0%, rgba(0, 26, 61, 0.5) 55%, rgba(0, 26, 61, 0.4) 100%);
+  }
+
+  .album-card--featured .album-card-overlay {
+    padding: 40px;
+    gap: 16px;
+  }
+
+  .album-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .album-card:focus-visible {
+    outline: 2px solid #003f8a;
+    outline-offset: 3px;
+  }
+
+  .album-card--featured:focus-visible {
+    outline-color: #c9a24a;
+  }
+
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .album-grid--official {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .album-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #001535;
+    cursor: pointer;
+  }
+
+  .album-grid--official .album-thumb {
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+  }
+
+  .album-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .album-thumb:hover img {
+    transform: scale(1.03);
+  }
+
+  .album-thumb:focus-visible {
+    outline: 2px solid #003f8a;
+    outline-offset: 3px;
+  }
+
+  .album-grid--official .album-thumb:focus-visible {
+    outline-color: #c9a24a;
+  }
+
+  .album-viewer {
+    position: fixed;
+    inset: 24px;
+    width: auto;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+    background: #f4f0e8;
+    color: #001a3d;
+    overflow: hidden;
+  }
+
+  .album-viewer[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .album-viewer::backdrop {
+    background: rgba(0, 26, 61, 0.88);
+  }
+
+  .album-viewer-chrome {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 28px;
+    background: #001a3d;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .album-viewer-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .album-viewer-kicker {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #c9a24a;
+  }
+
+  .album-viewer-title {
+    margin: 0;
+    font-family: 'Newsreader', serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: white;
+  }
+
+  .album-viewer-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    padding: 0;
+    border-radius: 999px;
+    border: 1.5px solid #f5f5f3;
+    background: #001a3d;
+    color: #f5f5f3;
+    cursor: pointer;
+  }
+
+  .album-viewer-close:hover {
+    background: #003f8a;
+  }
+
+  .album-viewer-body {
+    flex: 1;
+    overflow: auto;
+    padding: 24px 28px 32px;
+  }
+
+  .photo-stage {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(0, 26, 61, 0.96);
+  }
+
+  .photo-stage[hidden] {
+    display: none;
+  }
+
+  .lightbox-image {
+    display: block;
+    max-width: min(100%, 1200px);
+    max-height: calc(100% - 72px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .lightbox-close,
+  .lightbox-nav {
+    position: absolute;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 999px;
+    border: 1.5px solid #f5f5f3;
+    background: #001a3d;
+    color: #f5f5f3;
+    cursor: pointer;
+  }
+
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
+  }
+
+  .lightbox-nav {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-close:hover,
+  .lightbox-nav:hover,
+  .album-viewer-close:hover {
+    background: #003f8a;
+  }
+
+  .lightbox-close:focus-visible,
+  .lightbox-nav:focus-visible,
+  .album-viewer-close:focus-visible {
+    outline: 2px solid #c9a24a;
+    outline-offset: 3px;
+  }
+
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+
+  .lightbox-caption {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #f5f5f3;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .album-card img,
+    .album-card:hover img,
+    .album-thumb img,
+    .album-thumb:hover img {
+      transition: none;
+      transform: none;
+    }
+  }
+
   /* ============ RESPONSIVE ============ */
 
   /* Tablet */
@@ -250,6 +866,15 @@ const galleries = [
       align-items: flex-start !important;
       gap: 24px !important;
     }
+
+    .album-card-grid { grid-template-columns: 1fr 1fr !important; }
+    .album-card { min-height: 300px !important; }
+    .album-card--featured { min-height: 380px !important; }
+    .album-card-title { font-size: 28px !important; }
+    .album-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .album-grid--official { grid-template-columns: repeat(2, 1fr) !important; }
+    .album-viewer { inset: 16px !important; }
+    .album-viewer-title { font-size: 24px !important; }
 
     /* bento → 2 kolumny, kasujemy span-y */
     .bento-grid {
@@ -289,6 +914,25 @@ const galleries = [
 
     .section-pad { padding: 40px 20px !important; }
     .section-title { font-size: 28px !important; }
+
+    .album-card-grid { grid-template-columns: 1fr !important; }
+    .album-card { min-height: 280px !important; }
+    .album-card--featured { min-height: 340px !important; }
+    .album-card-overlay { padding: 24px !important; }
+    .album-card-title { font-size: 26px !important; }
+    .album-grid,
+    .album-grid--official { grid-template-columns: repeat(2, 1fr) !important; }
+    .album-viewer { inset: 0 !important; border-radius: 0 !important; }
+    .album-viewer-chrome { padding: 16px 16px 16px 20px !important; }
+    .album-viewer-body { padding: 16px !important; }
+    .album-viewer-title { font-size: 22px !important; }
+    .lightbox-close { top: 8px !important; right: 8px !important; }
+    .lightbox-prev { left: 8px !important; }
+    .lightbox-next { right: 8px !important; }
+    .lightbox-image {
+      max-width: calc(100% - 8px) !important;
+      max-height: calc(100% - 72px) !important;
+    }
 
     /* bento → jedna kolumna */
     .bento-grid {
