@@ -1,0 +1,412 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro';
+
+const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i;
+const awardsFolder = 'awards';
+const awardsDir = path.join(process.cwd(), 'public', 'images', awardsFolder);
+
+const awardFiles = fs.existsSync(awardsDir)
+  ? fs
+      .readdirSync(awardsDir)
+      .filter((name) => IMAGE_EXT.test(name) && fs.statSync(path.join(awardsDir, name)).isFile())
+  : [];
+
+function normalise(name) {
+  return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-');
+}
+
+function findPhoto(needles, { exclude = [] } = {}) {
+  const name = awardFiles.find((file) => {
+    if (exclude.some((token) => file.includes(token))) return false;
+    const key = normalise(file);
+    return needles.every((token) => key.includes(token));
+  });
+  if (!name) return null;
+  return `/images/${awardsFolder}/${encodeURIComponent(name)}`;
+}
+
+const recipients = [
+  {
+    id: 'black-watch-silesia',
+    year: 2025,
+    name: 'Grupa rekonstrukcyjna Black Watch Silesia',
+    credit: 'Karol Kordyka',
+    photo: findPhoto(['kordyka']),
+  },
+  {
+    id: 'leszek-wieciech',
+    year: 2024,
+    name: 'Leszek Wieciech',
+    credit: '',
+    photo: findPhoto(['leszek']),
+  },
+  {
+    id: 'dzien-szkocki',
+    year: 2024,
+    name: 'Dzień Szkocki, Jadowskie Stowarzyszenie Historyczne',
+    credit: 'Marek Suchocki',
+    photo: findPhoto(['marek-suchocki'], { exclude: [')'] }),
+  },
+  {
+    id: 'czestochowa-pipes',
+    year: 2024,
+    name: 'Częstochowa Pipes and Drums',
+    credit: '',
+    photo: findPhoto(['pipes', 'drums'], { exclude: ['ypres'] }),
+  },
+];
+
+const years = [...new Set(recipients.map((r) => r.year))].sort((a, b) => b - a);
+---
+
+<Layout>
+  <!-- TOP BANNER -->
+  <div class="top-banner" style="background-color: #001a3d; color: #f5f5f3; padding: 12px 48px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;">
+    <span>Patron · British Embassy Warsaw</span>
+    <span>KRS 0000557012 · Charity reg. since 2016</span>
+  </div>
+
+  <Navbar />
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-headline-col" style="flex: 1;">
+      <div style="display: flex; gap: 8px; align-items: center; font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">
+        <span>Awards</span>
+        <div style="height: 1px; width: 194px; background: #c9a24a;"></div>
+      </div>
+      <h1 class="page-hero-title" style="font-family: 'Newsreader', serif; font-size: 56px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: white; margin: 0;">Excellence in Promoting Scottish Culture, Business, Education and Heritage Award</h1>
+    </div>
+
+    <div class="hero-side-box" style="width: 380px; border-top: 1px solid rgba(255,255,255,0.15);">
+      {years.map((year) => {
+        const count = recipients.filter((r) => r.year === year).length;
+        return (
+          <a href={`#year-${year}`} style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 20px 0; display: flex; justify-content: space-between; align-items: center; text-decoration: none;">
+            <p style="font-family: 'Newsreader', serif; font-size: 32px; font-weight: 600; font-style: italic; color: #c9a24a; margin: 0;">{year}</p>
+            <p style="font-family: 'Courier New', monospace; font-size: 12px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">
+              {count} {count === 1 ? 'recipient' : 'recipients'}
+            </p>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section-pad" style="background: #f4f0e8; padding: 80px 96px;">
+    <div class="awards-intro-row">
+      <div class="awards-intro" style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div style="background: #c8102e; height: 1px; width: 28px;"></div>
+          <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c8102e; text-transform: uppercase; letter-spacing: 0.04em;">The Award</span>
+        </div>
+        <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: #002b60; margin: 0; letter-spacing: -0.01em;">The Award.</h2>
+        <div style="background: #8c0b20; height: 4px; width: 80px;"></div>
+        <div class="awards-intro-copy" style="display: flex; flex-direction: column; gap: 16px; margin-top: 8px;">
+          <p style="font-size: 16px; color: #001a3d; line-height: 1.6; margin: 0;">Each year, the St. Andrews Foundation recognises individuals, organisations, institutions and businesses whose commitment and achievements make an exceptional contribution to promoting Scotland, its culture, heritage, education and business, while strengthening the bonds between Scotland and Poland.</p>
+          <p style="font-size: 16px; color: #001a3d; line-height: 1.6; margin: 0;">Our Excellence in Promoting Scottish Culture, Business, Education and Heritage Award celebrates those who go beyond simply maintaining these connections — they bring them to life, broaden awareness and create new opportunities for people to discover, understand and engage with Scotland.</p>
+          <p style="font-size: 16px; color: #001a3d; line-height: 1.6; margin: 0;">Through this Award, we are proud to recognise and thank those whose passion, initiative and dedication help ensure that Scotland continues to have a strong and positive presence in Poland.</p>
+          <p style="font-size: 16px; color: #001a3d; line-height: 1.6; margin: 0;">The awards were first presented in 2024 and here you will find photos and information about the deserving recipients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECIPIENTS BY YEAR -->
+  {years.map((year, yearIndex) => (
+    <section id={`year-${year}`} class="section-pad awards-year" style={`padding: 80px 96px; display: flex; flex-direction: column; gap: 48px; background: ${yearIndex % 2 === 0 ? '#ffffff' : '#f4f0e8'};`}>
+      <div class="awards-year-head">
+        <p class="awards-year-label">{year}</p>
+        <div class="awards-year-rule"></div>
+      </div>
+
+      {recipients.filter((r) => r.year === year).map((recipient, recipientIndex) => {
+        const belowFold = yearIndex > 0 || recipientIndex > 0;
+        return (
+          <article class="award-recipient" id={recipient.id}>
+            {recipient.photo && (
+              <div class="award-photo">
+                <img
+                  src={recipient.photo}
+                  alt={recipient.credit ? `${recipient.name} (${recipient.credit})` : recipient.name}
+                  loading={belowFold ? 'lazy' : 'eager'}
+                />
+              </div>
+            )}
+            <div class="award-copy">
+              <span class="award-kicker">{year}</span>
+              <h3 class="award-name">{recipient.name}</h3>
+              {recipient.credit && <p class="award-credit">{recipient.credit}</p>}
+              <div class="award-rule"></div>
+
+              {recipient.id === 'black-watch-silesia' && (
+                <div class="award-bio" data-bio="black-watch-silesia">
+                  <!-- PASTE BIOGRAPHY: Grupa rekonstrukcyjna Black Watch Silesia (Karol Kordyka) — replace the placeholder paragraph below with the supplied paragraphs, unchanged. -->
+                  <p class="award-bio-placeholder">Biography to follow.</p>
+                </div>
+              )}
+
+              {recipient.id === 'leszek-wieciech' && (
+                <div class="award-bio" data-bio="leszek-wieciech">
+                  <p>Mature expert in government affairs, former diplomat. Served at different positions at the Polish MFA, including Deputy Director of Personnel, Consul General of Poland in Edinburgh, etc.</p>
+                  <p>After completing his duty in Scotland he left the MFA and spent the rest of his professional career managing government relations for business (BP Poland, Polish Organisation of Oil Industry and Trade) and NGOs (Clinton Climate Initiative, UN Global Compact Network Poland).</p>
+                  <p>One of the pioneers of responsible business (CSR) in Poland. Promotor of road safety in Poland (currently the Deputy President of Polish Partnership for Road Safety).</p>
+                  <p>Active in the area of appropriate commemoration of Polish prisoners at the concentration camps museums – memorial sites in Germany.</p>
+                  <p>Passionate about discovering unknown chapters of Polish-Scottish relations, including Polish traces in Scotland and Scottish traces in Poland. Author of several articles on this subject, published at <a href="https://decydent.pl/category/alba-lach-heritage/" target="_blank" rel="noopener">https://decydent.pl/category/alba-lach-heritage/</a></p>
+                  <p>Author of the new translation of Fred Urquhart's novel "The Laundry Girl and the Pole" into Polish. Collector of artefacts linked with Polish-Scottish links. Runs blog Orzeł i Oset - Eagle and Thistle at the Facebook. Member of Global Scots Network.</p>
+                </div>
+              )}
+
+              {recipient.id === 'dzien-szkocki' && (
+                <div class="award-bio" data-bio="dzien-szkocki">
+                  <p>Marek Suchocki – founder and President of the Jadów Historical Association, regional heritage advocate and officially appointed volunteer heritage guardian. He is a co-founder of the Museum of the Jadów Region, recognised by Poland's National Centre for Culture in the "Discover Your Treasure" competition.</p>
+                  <p>Since 2021, he has been actively involved in restoring the memory of the Scottish community that settled in Jadów in the 19th century. Through community-led initiatives which he co-initiated, the long-forgotten cemetery of the Scottish settlers was cleared and brought under heritage protection, and conservation work was carried out on the surviving gravestones. In parallel, he conducts historical and genealogical research which has led to identifying descendants of Jadów's Scottish settlers and establishing contact with them.</p>
+                  <p>He is the initiator of Scottish Day in Jadów, held annually since 2021 and now the largest event dedicated to Scotland in Poland, organised under the patronage of the British Embassy in Warsaw. For its initiatives aimed at restoring the memory of Jadów's Scottish heritage, including the organisation of the first Scottish Day, the Jadów Historical Association received the Super Samorząd Award as part of the "Masz Głos" ("You Have a Voice") programme of the Stefan Batory Foundation. He is also the initiator of other projects aimed at strengthening contemporary Polish-Scottish relations.</p>
+                  <p>He presented the Jadów Historical Association's work to preserve the cemetery and restore the memory of Jadów's Scottish settlers at the 1st Interdisciplinary Congress on Cemetery Studies; this work was subsequently featured in the Congress publication.</p>
+                  <p>In 2025, he received an Award from the Polish Minister of Culture and National Heritage for his contribution to the protection of cultural heritage and the development of Polish-Scottish relations.</p>
+                  <p>Professionally, he works in the telecommunications and ICT sector, focusing on strategic and transformation projects. He combines his business experience with community engagement, applying it to the development of cultural, historical and tourism initiatives.</p>
+                </div>
+              )}
+
+              {recipient.id === 'czestochowa-pipes' && (
+                <div class="award-bio" data-bio="czestochowa-pipes">
+                  <p>Częstochowa Pipes &amp; Drums is a Polish pipe band dedicated to bringing the music, traditions and spectacle of Scotland to audiences in Poland and internationally. The band performs traditional Scottish music on Great Highland bagpipes and drums, combining authentic musical traditions with the precision and ceremony associated with military pipe bands.</p>
+                  <p>Over the years, the band has performed extensively across Poland and abroad, including appearances in Germany, Scotland, the Czech Republic, Slovakia, Ukraine, Belgium, France, Canada, Russia, Estonia, Oman and the United Arab Emirates. Its performances range from major international festivals, military and historical ceremonies to cultural celebrations, concerts and charitable events.</p>
+                  <p>The band also plays an important educational and cultural role, introducing young people and wider audiences to Scottish music, history and traditions. Its members have performed alongside pipe bands from Scotland and other countries, building friendships through a shared passion for Scottish musical heritage.</p>
+                  <p>Częstochowa Pipes &amp; Drums has become a much-loved part of the St. Andrews Foundation Warsaw Charity Ceilidh, bringing the unmistakable sound and spirit of Scotland to Warsaw and helping us celebrate the strong cultural ties between Scotland and Poland.</p>
+                </div>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </section>
+  ))}
+
+  <Footer />
+</Layout>
+
+<style>
+  .awards-intro-row {
+    display: block;
+  }
+
+  .awards-year-head {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .awards-year-label {
+    font-family: 'Newsreader', serif;
+    font-size: 48px;
+    font-weight: 600;
+    font-style: italic;
+    color: #001a3d;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .awards-year-rule {
+    flex: 1;
+    height: 1px;
+    background: #e0ded8;
+  }
+
+  .award-recipient {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #e0ded8;
+  }
+
+  .award-recipient:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .award-photo {
+    width: 360px;
+    min-width: 360px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #001a3d;
+    position: sticky;
+    top: 96px;
+  }
+
+  .award-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .award-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .award-kicker {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #8c0b20;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .award-name {
+    font-family: 'Newsreader', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #001a3d;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .award-credit {
+    font-size: 16px;
+    color: #003f8a;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .award-rule {
+    background: #8c0b20;
+    height: 3px;
+    width: 60px;
+    margin: 4px 0 8px;
+  }
+
+  .award-bio {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .award-bio p {
+    font-size: 16px;
+    color: #001a3d;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .award-bio a {
+    color: #003f8a;
+    text-underline-offset: 2px;
+  }
+
+  .award-bio-placeholder {
+    font-style: italic;
+    color: #003f8a;
+  }
+
+  /* ============ RESPONSIVE ============ */
+
+  @media (max-width: 1024px) {
+    .top-banner {
+      padding: 10px 32px !important;
+    }
+
+    .page-hero {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 40px !important;
+      padding: 64px 32px !important;
+    }
+
+    .hero-headline-col,
+    .hero-side-box {
+      width: 100% !important;
+      min-width: 0 !important;
+      flex: none !important;
+    }
+
+    .page-hero-title {
+      font-size: 40px !important;
+    }
+
+    .section-pad,
+    .awards-year {
+      padding: 48px 32px !important;
+    }
+
+    .section-title {
+      font-size: 36px !important;
+    }
+
+    .award-recipient {
+      gap: 32px !important;
+    }
+
+    .award-photo {
+      width: 240px !important;
+      min-width: 240px !important;
+    }
+
+    .award-name {
+      font-size: 26px !important;
+    }
+
+    .awards-year-label {
+      font-size: 36px !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .top-banner {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 4px !important;
+      padding: 10px 20px !important;
+      font-size: 10px !important;
+    }
+
+    .page-hero {
+      padding: 48px 20px !important;
+    }
+
+    .page-hero-title {
+      font-size: 30px !important;
+    }
+
+    .section-pad,
+    .awards-year {
+      padding: 40px 20px !important;
+    }
+
+    .section-title {
+      font-size: 28px !important;
+    }
+
+    .award-recipient {
+      flex-direction: column !important;
+      gap: 20px !important;
+    }
+
+    .award-photo {
+      width: 100% !important;
+      min-width: 0 !important;
+      position: static !important;
+    }
+
+    .award-name {
+      font-size: 24px !important;
+    }
+
+    .awards-year-label {
+      font-size: 32px !important;
+    }
+  }
+</style>

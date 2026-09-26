@@ -269,7 +269,7 @@ const featuredCover = featuredAlbum && albumCover(featuredAlbum);
       <div style="display: flex; flex-direction: column; gap: 20px; position: relative; z-index: 2;">
         <div style="display: flex; gap: 12px; align-items: center;">
           <div style="background: #c9a24a; height: 1px; width: 28px;"></div>
-          <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Next event · 29 November 2026</span>
+          <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">Next event · 28 November 2026</span>
         </div>
         <h2 class="next-event-title" style="font-family: 'Newsreader', serif; font-size: 52px; font-weight: 400; color: white; margin: 0; line-height: 1.1; letter-spacing: -0.01em;">Join us for the <span style="font-style: italic; color: #c9a24a;">next</span> Ceilidh.</h2>
         <p style="font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.5; margin: 0; max-width: 560px;">Pipes, dancing, haggis and a hundred stories at Reduta Banku Polskiego, Warsaw. Be part of the photographs we'll be showing here next year.</p>
@@ -361,7 +361,7 @@ const featuredCover = featuredAlbum && albumCover(featuredAlbum);
 
   <script>
     function updateMediaCountdown() {
-      const eventDate = new Date('2026-11-29T18:30:00');
+      const eventDate = new Date('2026-11-28T18:30:00+01:00');
       const diff = eventDate.getTime() - new Date().getTime();
       if (diff <= 0) return;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
