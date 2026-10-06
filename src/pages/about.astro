@@ -33,18 +33,13 @@ import { ArrowUpRight } from 'lucide-astro';
         <p style="font-size: 16px; color: white; margin: 0; line-height: 1.6;">Donated since 2016</p>
       </div>
       <div style="border-top: 1px solid rgba(255,255,255,0.15);">
-        <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 14px 0; display: flex; justify-content: space-between; align-items: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: white; margin: 0;">8</p>
-          <p style="font-family: 'Courier New', monospace; font-size: 12px; color: white; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">Organisations supported</p>
-        </div>
-        <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 14px 0; display: flex; justify-content: space-between; align-items: center;">
-          <p style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: white; margin: 0;">10</p>
-          <p style="font-family: 'Courier New', monospace; font-size: 12px; color: white; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">Ceilidh editions</p>
-        </div>
-        <div style="border-bottom: 1px solid rgba(255,255,255,0.15); padding: 14px 0; display: flex; justify-content: space-between; align-items: center;">
+        <div style="padding: 14px 0; display: flex; justify-content: space-between; align-items: center;">
           <p style="font-family: 'Newsreader', serif; font-size: 28px; font-weight: 600; color: white; margin: 0;">10</p>
           <p style="font-family: 'Courier New', monospace; font-size: 12px; color: white; text-transform: uppercase; letter-spacing: 0.04em; margin: 0;">Years of activity</p>
         </div>
+      </div>
+      <div class="hero-side-photo">
+        <img src="/lord-speaker-new/lord-speaker-new.JPG" alt="Speakers on stage at a St. Andrews Foundation charity event" />
       </div>
     </div>
   </section>
@@ -107,6 +102,32 @@ import { ArrowUpRight } from 'lucide-astro';
         ))}
       </div>
     </div>
+
+    <div class="story-photo-grid">
+      {[
+        { src: '/lord-speaker-new/lord-speaker2.JPG', alt: 'Folk dancers at the St Andrews Caledonian Ball' },
+        { src: '/lord-speaker-new/lord-speaker3.JPG', alt: 'Guests at a St. Andrews Foundation charity event' },
+        { src: '/lord-speaker-new/lord-speaker4.JPG', alt: 'Guests at a St. Andrews Foundation charity event' },
+        { src: '/lord-speaker-new/lord-speaker5.JPG', alt: 'Guests at a St. Andrews Foundation charity event' },
+        { src: '/lord-speaker-new/lord-speaker6.JPG', alt: 'Guests at a St. Andrews Foundation charity event' },
+        { src: '/lord-speaker-new/lord-speaker7.JPG', alt: 'Guests at a St. Andrews Foundation charity event' },
+      ].map((photo) => (
+        <div class="story-photo-cell">
+          <img src={photo.src} alt={photo.alt} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- TEN YEARS FRAMING -->
+  <section class="section-pad" style="background: #001a3d; padding: 80px 96px; display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <div style="background: #c9a24a; height: 1px; width: 28px;"></div>
+      <span style="font-family: 'Courier New', monospace; font-size: 12px; color: #c9a24a; text-transform: uppercase; letter-spacing: 0.04em;">2016–2026</span>
+    </div>
+    <h2 class="section-title" style="font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; color: white; margin: 0; letter-spacing: -0.01em;">Ten Years. Nine Remarkable Evenings.</h2>
+    <div style="background: #c9a24a; height: 4px; width: 80px;"></div>
+    <p style="font-size: 18px; color: white; line-height: 1.5; margin: 8px 0 0; max-width: 720px;">Since the St. Andrews Foundation was established, our Charity Ball and Ceilidh have brought together the Scottish, Polish and international communities in Warsaw in support of children and young people. Following a two-year pause during the COVID-19 pandemic, 2026 will mark our ninth charity event.</p>
   </section>
 
   <!-- FOUNDATION VALUES -->
@@ -271,6 +292,48 @@ import { ArrowUpRight } from 'lucide-astro';
 </Layout>
 
 <style>
+  .page-hero {
+    align-items: flex-start;
+  }
+
+  .hero-side-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #001535;
+  }
+
+  .hero-side-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .story-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+
+  .story-photo-cell {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #001a3d;
+  }
+
+  .story-photo-cell img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .tartan-banner {
     background-color: #001a3d;
     height: 400px;
@@ -362,6 +425,10 @@ import { ArrowUpRight } from 'lucide-astro';
     .story-grid {
       grid-template-columns: 1fr !important;
       gap: 48px !important;
+    }
+
+    .story-photo-grid {
+      gap: 8px !important;
     }
 
     .values-grid {

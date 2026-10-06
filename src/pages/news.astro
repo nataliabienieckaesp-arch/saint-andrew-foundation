@@ -80,7 +80,9 @@ const years = [...new Set(posts.map(p => p.year))].sort((a, b) => b - a);
               {post.body.map(block => (
                 block.type === 'quote'
                   ? <blockquote class="news-card__quote">{block.text}</blockquote>
-                  : <p class="news-card__para">{block.text}</p>
+                  : block.href
+                    ? <p class="news-card__para">{block.text}<a href={block.href}>{block.linkLabel}</a>{block.textAfter}</p>
+                    : <p class="news-card__para">{block.text}</p>
               ))}
 
               {post.sponsors && post.sponsors.length > 0 && (
@@ -255,6 +257,11 @@ const years = [...new Set(posts.map(p => p.year))].sort((a, b) => b - a);
     color: rgba(0, 43, 96, 0.8);
     line-height: 1.7;
     margin: 0;
+  }
+  .news-card__para a {
+    color: #003f8a;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
   .news-card__quote {
     border-left: 3px solid #8c0b20;
